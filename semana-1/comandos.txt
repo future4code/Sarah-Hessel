@@ -1,0 +1,46 @@
+whoami     ---  imprime o nome de usuário efetivo do usuário atual quando chamado.
+echo       ---
+pwd 	   --- 
+cd         --- entrar na pasta 
+cd ..	   --- voltar uma pasta
+ls         --- imprime os arquivos presentes no repositorio 
+ls -l 	   --- ver arquivos ocultos
+touch      --- criar arquivo
+mkdir      --- criar pasta
+rm (remove)--- apagar arquivo
+rm -r      --- apagar repositorio (pasta)
+clear      --- limpar a tela
+mv (move)  --- mover arquivo                  	      	// mv comandos.txt Labenu
+mv         --- mudar o nome do arquivo       	      	// mv comandos.txt novo-arquivo.txt
+cp (copy)  --- copiar arquivo para outro repositorlio 	// cp comandos.txt pasta-da-Dumont
+cat (concat) --- concatena o conteudo do arquivo e imprimi no terminal // cat comandos.txt
+head    --- imprime as 10 primeiras linhas do arquivo  //
+head -n --- indica quantas linhas queremos ver         //head -n 3 comandos.txt
+tail    --- imprime as 10 ultimas linhas
+tail -n --- imprime as linhas (de baixo para cima)   // tail -n 2 comandos.txt
+grep    --- permite buscar o conteudo de um arquivo  // grep criar comandos.txt
+grep -A --- buscar o ngreome e mais alguns seguintes    // grep -A 2 Sarah
+
+
+git clone 
+git commit -m "mensagem"
+git add .
+esc esc -q			---
+git branch nome-da-branch	--- criar uma branch
+git checkout nome-da-branch     --- entrar em determinada branch 
+git checkout -b nome-da-branch  --- criar uma branch e entrar nela automaticamente
+git merge nome-do-ngc           --- usada para mesclar um ramo em outro ou no master
+git rebase 			---
+
+* Commits relativos são poderosos, mas vamos introduzir apenas dois tipos simples aqui:
+
+Mover para cima um commit por vez com ^
+Mover para cima um número de vezes com ~<num>
+
+master^ é equivalente a "o primeiro pai do master".
+master^^ é o avô (ancestral de segunda geração) do master
+
+EXEMPLO: git checkout master^ /  git checkout master~4 
+
+git branch -f master HEAD~3 	--- Move (à força) o ramo master 3 ancestrais acima do HEAD.
+
