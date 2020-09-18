@@ -1,0 +1,65 @@
+body{margin: 0; background-image: url(img/fundo.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+
+nav{ width: 200px;}
+
+nav > a  { background-color: rgba(255, 255, 255, 0.815);
+color: black;
+display: block;  
+padding: 30px;
+margin-left: 20px;
+padding-bottom: 30px;
+text-decoration: none;
+}
+#menu{ background-color: white;
+    text-align: center;
+    font-family: 'Cambria';
+    font-size: 20px;
+    color: black;
+    display: block;  
+    padding: 30px;
+    margin:0;
+    margin-left: 20px;
+}
+nav > a  { background-color:rgba(255, 255, 255, 0.753);
+    color: black;
+    font-family:  'Cambria';
+    display: block;  
+    padding: 32px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+nav a:hover{
+    background-color: #ccc;
+    color: white;
+}
+nav a.active{ 
+    background-color: lightblue;
+    color: black;
+}
+.criadora{
+    float: right;
+    width: 30%;
+    text-align: center;
+    font-style: italic;
+    font-family: 'Cambria';
+    font-size: smaller;
+    text-indent: 0;
+    border: thin silver solid;
+}
+header{
+    background-color: white;
+    padding: 50px;
+}
+footer{
+    text-align: center;
+    background-color: white;
+    width: 100%;
+    bottom: 0%;
+    position: fixed;
+    padding: 47px;
+}
