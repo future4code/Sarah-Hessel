@@ -1,0 +1,41 @@
+body{margin:0; background:url("../sistema-loja/img/fundo.jpg"); background-repeat: no-repeat;   background-size: 100%;
+}
+header{ background-color: white ; padding-top: 3px;
+padding-bottom: 2px;}
+.nav {
+   display: flex;
+   flex-direction: row-reverse;
+   
+}
+.nav> a {
+    color: white;
+    background-color: rgb(31, 117, 5);
+    font-family: "Trebuchet MS";
+    font-size: 16px;
+    padding: 10px;;
+    margin: 9px;
+}
+.nav a:hover{
+    background-color: #ddd;
+    color: black;
+}
+.abe{
+    font-family: 'Georgia';
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+    background-color: rgb(25, 94, 4);
+}
+footer{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.781);
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 20px;
+}
+.imgSocial{
+text-align: center;
+
+}
+    

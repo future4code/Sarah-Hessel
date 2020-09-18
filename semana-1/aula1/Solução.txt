@@ -1,0 +1,970 @@
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando
+$ cat inicio
+Aconteceu um assassinato na Cidade do Terminal, e a polícia precisa da sua ajuda.
+
+Para descobrir o culpado, vá até o subdiretório "misterio" e comece investigando
+por lá.
+
+Você provavelmente vai querer começar analisando todas as pistas que foram
+encontradas na cena do crime (arquivo "cena-do-crime").
+
+Os policiais que analisaram a cena foram bastante detalhistas e colocaram, neste
+arquivo, TUDO que encontraram.
+
+Felizmente, o sargento analisou o relatório e marcou as pistas reais com a
+palavra "PISTA", em maiúsculas.
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando
+$ cd misterio
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ ls
+associacoes/  automoveis  cena-do-crime  entrevistas/  pessoas  ruas/
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ head cena-do-crime
+*******
+Relatório da Cena do Crime #262227712435
+********
+
+ALICE ESTAVA COMEÇANDO a ficar muito cansada de estar sentada ao lado da irmã
+na ribanceira, e de não ter nada que fazer; espiara uma ou duas vezes o livro
+que estava lendo, mas não tinha figuras nem diálogos, “e de que serve um
+livro”, pensou Alice, “sem figuras nem diálogos?”.
+
+Assim, refletia com seus botões (tanto quanto podia, porque o calor a fazia se
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep PISTA cena-do-crime
+PISTA: A filmagem do caixa eletrônico está embaçada, mas mostra que o suspeito é um homem alto, pelo menos 1,83m de altura.
+PISTA: Encontramos uma carteira que provavelmente pertence ao assassino. Nenhum documento de identidade, apenas alguns trocados e carteirinhas dos grupos AAA, Delta SkyMiles, biblioteca e do Museu de História do Bash. Impossível rastrear as carteirinhas, e nenhuma delas possui nome, por algum motivo.
+PISTA: Interrogamos o garçom da cafeteria próxima à cena. Ele disse que uma mulher saiu da cafeteria logo antes de ouvirem os tiros. O nome dela era Annabel, tinha cabelo loiro curto e um sotaque da Nova Zelândia.
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep Annabel pessoas
+Annabel Sun     F       26      Vila Hart, linha 40
+Oluwasegun Annabel      M       37      Rua Mattapan, linha 173
+Annabel Church  F       38      Vila Buckingham, linha 179
+Annabel Fuglsang        M       40      Rua Haley, linha 176
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ cd ruas
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/ruas
+$ ls
+Alameda_Hooten             Avenida_Sammett         Parque_Wilkinson    Rua_Clay        Rua_Fowler     Rua_Miles             Rua_Rozella     Rua_Wiget            Travessa_Forestvale      Travessa_Supple
+Alameda_Lineham            Avenida_Taunton         Rua_Abbot           Rua_Claybourne  Rua_Gerard     Rua_Moloney           Rua_Saco        Rua_Wiggin           Travessa_Frontage        Travessa_Victory
+Alameda_Saint_Saveur       Avenida_Warren          Rua_Acton           Rua_Cook        Rua_Granby     Rua_Mozart            Rua_Salutation  Rua_Willet           Travessa_Greendale       Travessa_Wallingford
+Alameda_Senders            Avenida_Wheatland       Rua_Alaric          Rua_Cornelia    Rua_Groveland  Rua_Mystic            Rua_Saunders    Rua_Winter           Travessa_Gretter         Travessa_Wilcox
+Alameda_Unity              Avenida_Willowdean      Rua_Albany          Rua_Corwin      Rua_Haley      Rua_Nazing            Rua_Scotia      Rua_Woodcliff        Travessa_Harding         Travessa_Williston
+Avenida_Bartlett           Avenida_Wilmington      Rua_Aldworth        Rua_Culbert     Rua_Hazel      Rua_New_Minton        Rua_Selwyn      Rua_Worrell          Travessa_High            Vila_Buckingham
+Avenida_Bellevue           Avenida_Wooddale        Rua_Alpine          Rua_Dacia       Rua_Hazelton   Rua_North_Washington  Rua_Sheldon     Travessa_Addington   Travessa_Jacqueline      Vila_Hart
+Avenida_Bertson            Avenida_Wycliff         Rua_Aramon          Rua_Dalton      Rua_Hobart     Rua_Norton            Rua_Silver      Travessa_Andover     Travessa_John_Alden      Vila_Island_View
+Avenida_Blue_Hill          Devine_Way              Rua_Arcola          Rua_Davenport   Rua_Hollander  Rua_Oakley            Rua_Sparrow     Travessa_Ansonia     Travessa_Kinross         Vila_Jamaica
+Avenida_Brookline          Grampian_Way            Rua_Auriga          Rua_Dewar       Rua_Hopedale   Rua_Pinewood          Rua_Spaulding   Travessa_Appleton    Travessa_Laban_Pratt     Vila_King
+Avenida_Cardinal_Medeiros  Gray_Gardens_East       Rua_B               Rua_Doane       Rua_Hull       Rua_Plain             Rua_Standard    Travessa_Atwood      Travessa_Leseur          Vila_Oak
+Avenida_Cerdan             Hadassah_Way            Rua_Ballard         Rua_Dock        Rua_Jacob      Rua_Plainfield        Rua_Staniford   Travessa_Avalon      Travessa_Meadowview      Vila_Randlett
+Avenida_Dana               Harbor_Point_Boulevard  Rua_Bicknell        Rua_Dorrance    Rua_Jersey     Rua_Potosi            Rua_Story       Travessa_Bothwell    Travessa_Mount_Ash       Vila_Terrace
+Avenida_Glenville          Largo_Clipper_Ship      Rua_Bobolink        Rua_Dover       Rua_Jeshurun   Rua_Proctor           Rua_Tennyson    Travessa_Bournedale  Travessa_Mount_Ida       Vila_Trinity
+Avenida_Glenwood           Largo_Gillespies        Rua_Boston          Rua_Dresser     Rua_Judge      Rua_Rena              Rua_Theodore    Travessa_Burwell     Travessa_Myles_Standish  Vila_Wesley
+Avenida_High_View          Largo_Peacock           Rua_Boynton         Rua_Elmore      Rua_June       Rua_Renfrew           Rua_Tolman      Travessa_Cadbury     Travessa_Newcastle
+Avenida_Kearsarge          Largo_Vassal            Rua_Brinton         Rua_Enterprise  Rua_Knoll      Rua_Richardson        Rua_Topeka      Travessa_Cheverus    Travessa_Oliva
+Avenida_Manila             Mamelon_Circle          Rua_Bristol         Rua_Estrella    Rua_Lovis      Rua_Richmond          Rua_Trapelo     Travessa_Drumlin     Travessa_Orchard
+Avenida_Michigan           Manton_Terrace          Rua_Broad_Canal     Rua_Fairfield   Rua_Lynde      Rua_River             Rua_Trident     Travessa_Dunstable   Travessa_Paragon
+Avenida_Mountain           Newcroft_Circle         Rua_Brookdale       Rua_Fay         Rua_Lynn       Rua_Rivermoor         Rua_Vinton      Travessa_Embassy     Travessa_Peter_Parley
+Avenida_New_Park           Parque_Balmoral         Rua_Cardington      Rua_Fayston     Rua_Marney     Rua_Rockmere          Rua_Vista       Travessa_Esther      Travessa_Priscilla
+Avenida_Oak_Hill           Parque_Claremont        Rua_Causeway        Rua_Fessenden   Rua_Mattapan   Rua_Rosaria           Rua_Waldeck     Travessa_Eugenia     Travessa_Quarley
+Avenida_Richard            Parque_Merola           Rua_Channel_Center  Rua_Foundry     Rua_May        Rua_Rowe              Rua_Wentworth   Travessa_Faunce      Travessa_Searle
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/ruas
+$ head -n 40 Vila_Hart
+downhills exaggerates outgo rebating rhyming militarizes
+rakishly lithographs inserts
+humanism revolt hoggish tuner hoofs frizziest
+strippers toady framers bakes mandate
+pear graver drubbing reinvest abnormality teetotal lend
+stipulate attiring sprint tunnelings sera merrily proofreaders
+enthroning tuber onrushes pat a rows degrades parleyed
+probationer irresponsibility spongier smirking diminished
+stipulations dandle repetitious enervate
+reunion insert unhand heartbeat busheling teakettles dismayed
+plug hates easiest jabbered destining agglutinates
+ambitious swaggering ties annoyed battleground
+intuitively humbugs ribaldry suspend
+bedspreads expansionists restfullest
+dilated outstrips teapot fluoridates shops mammoth
+baron zoos teeter falloffs fishes invalidating
+patrols knelling rosining lightness unburden
+surfeited absurdity plexus rebuses leaking standing
+sizable punter bagginess dissenters
+postmarking spades overdraft pointillism
+stymie treadles extortionists dietitians agonies spitefuller
+multiplied submits despotism adventurous ballsier
+parody mania leftism tranquilize sexpots stupor parleying
+triumphing whiskered razing danger preordains
+faker preparatory gabbing mavens vamped
+idles tents oratorios butternuts upholsterers sassafras
+damnedest apologists inveigh
+propriety tossed parallelling town kinkier quarantine
+oxymoron nonmembers taproots
+snakebite dramatizing dawdling enlightening
+swastikas fragrant voluble stowing
+grammarian shah ambushed alines varmints doze detains
+wondrous uphold tests appetites wilier beautifiers
+drifts dosages leprosy rashers badmouth jugglers
+snot appals primes whet annular tonality
+shivery kingdom supplements envying
+the slayer gesture waged twenties ratifying baling mortals
+doggie probationary demurer fatness
+stupendous prolonged smog naps
+LEIA A ENTREVISTA #47246024
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/ruas
+$ head -n 179 Vila_Buckingham
+one earthlings startles invitingly pall
+headwaiter mate impregnability
+unmake drainpipe utilities pointillist
+apropos impressively forborne finite exempt
+griming vised thankfully burlap hypertension
+landsliding landfill furlong mittens heartland
+bully tortoise enlargers roamed undressing
+yuks troubleshooting seaboards
+springtime deaves reinitialize puttying
+densities warranties penultimates dehumanizes perorations
+untangles stays smashing spinets breadfruits
+granulating toreadors finishes knob headhunter
+longhairs pennyweights womanizers
+depressive overused disturbs glandular pillowed
+fallibly proportioning settling jumpier
+vagueness lethal alienating potted
+immortalizing parfaits ignited malnutrition
+feisty senseless manly fifths tailspin supposed downstairs
+ringer drainers agiler pinholes reedier
+meekest revolvers gobblers panelists unassigned yew butterfly
+nuts singsonged writs arm dimness
+bearing shags kleptomania sprinted barkers
+augury bullied letups shimming filmy golds
+thunders forbid snowflake unstabler moralist
+torrential attributable poniards newsletter stealthier
+breastplates bundled nationalization
+invaliding fitfully figured keystones
+misdoing unplugged newspapermen grandstand
+shrouding pushed botanists pivots domed
+mealier formerly trivet avenues flukey humorously
+twofold sniffling misdoes intros bookmarked
+subordinated amateur ambition tarpons fluttery
+gassier soldiering irritant wavelengths wriggling
+tarots gruesomely pair minks enrapture
+stupefy dukedoms emanating manikin enshrines
+freaky meditated paginating suddenly farewells presentations
+darted sizes tartly meddlers startled
+strong love thumbnail aquifer samurai
+parleys mobilizing repertoires sanitarium punts
+entwining inkier exterminate remission purblind
+inflammations resist impedes lighthouses allegro
+additions pantomiming wrongdoing natives elusive opals
+finagles assaying raving primmest libel repairable
+gallbladders dismissed girders waxworks tenderly feasibly
+temporaries peephole whams faultfinding metabolizing
+floor huddles refinish flattering swamped
+levied whets undersign bestiary
+auras kite presumes toasty pair loping revelled teas abnormally
+reality polarized preferably nominated
+pawnshops bootie pealed violist haulers haled
+palmettoes waste spot soggier annulled
+steak shrews gunshots foregone kneel
+inlets bran maraud salts hemmed
+poniard mangled dither humblest demitasses proprietary
+augury telemetry starlit landlubbers
+portrayed battleships orderliness salver forming grits
+alleyways disowning blogged argosies
+supervisor adored unequalled dangle nonreturnables
+sixteens defaulted bandoliers turtledove
+gearwheels junks endlessly wear internship timidly maxim
+waver windbreaker sunken disguising importations
+shoots smoggiest lifestyles journeymen
+reffed raft futzing dagger surrealism
+unsupervised disrepute ingeniously annul divining
+expressing rib snorted hexagons sway sharing neurosurgery
+frazzled leaving aqueous stigma punning psalmists
+desirous devaluation pudding alight squealed
+marital unsubstantial peasant drying bee agglomerates
+hansom methought adapts muezzins relish
+eastward maydays gondola burger abstains predetermined gated
+ornithology unarmed godfather roomer penises primitives
+slumber ether mender edgy underhanded ablest affirmatively
+sex barbershops leotards bobolink hormonal sump
+indubitable yardages felons unquestionably versifies infinitesimals
+aliasing inhibiting originally synthesizes
+perjuries goblet pasta moves farrow urged dotes fluffs
+liberals indentation horns erosion harrow snowstorm emulator
+pretending expiation imperialist overdresses
+bookmakers analogues dittoed effigy thunderheads
+employee wafer pessimist alleyway envisages
+orderings bedbug employ muskmelon benumb
+shards ominous bawl worryings refills animators soften
+merrier vanadium provides medleys obstinately summoner
+fold swoons grievously dismantles
+unbroken hothead jessamine yolk loath rake
+bludgeoned inflationary dowdy fingers saunter
+great diminutive puffiness bankbooks
+insolvent more balms millions mommy river sullenest
+intertwines obeisant gallon blame tub seeking firsts
+lingered populates naughty galvanizes postulated
+frailest shin wrestle faking goddamed allergist minute lobotomies
+thrower industriously idolized unabashed understudied
+shaking refereed mullet harmfulness hasp
+tubeless irretrievable transits underwrites drainage
+renegaded bilk gearbox expertise away beating
+rapt preventative freedman trouts insulted peopling pales
+earnest blabbing prohibitionist deserts runway
+patents idiot marvel deadens shad sluggers essay talkative
+sneer lows sidled sparingly ink geranium lighthearted
+boudoirs merry juniper while liquifies phobias goad peanuts
+hesitating inverse nighttime
+loosely impish threaded formlessness signet
+knotted pursues sightseer history software
+admonishment underskirt speedway deviate fags
+sandblasting plodding faggots grungy eventuality
+workmen extemporaneous espouses straitening laxatives
+harangue summing binderies membership
+huskies sidesaddles restoration tawdriest gazillions
+liven delimit jibe profited butterfly faithful
+iodize wheezier ministration hotbed rehabbing nuzzle
+esquire swallows smelly grounder shimmering sharpers hexed
+legionnaires workdays rinds personality
+governor floury earrings overusing
+winsomer falsity paradigm rows wiry alas worship
+spears goaded took despaired betrothal mink doled penetrative
+ingot tasting uprights barks sottish troubleshooter
+persevere ping deafening kisser innovators
+gaudier noiselessly glamorously quasar beeping yesterdays
+spinal klutzes yeastier initializing
+foetuses brews blunderbuss emitting
+hillier streak opines retirement straightedges nontransferable
+mending envisions gizmos drags finnier wildest
+adder malingerers euphony antiphonal departs spitfires
+hypes dye illuminations disablement
+sender waned bottomless saintlier lades plethora
+shenanigan larynges penguin heatstroke
+steins exiles underestimating guts billet flabbergasting
+sieges flawlessly serialized kippers
+enfeeble weathered bedridden liquidations
+flints winners unfairest damaged
+partnered pilaws hogs pluming avenge
+tanker forwent sag pheromone snowdrifts syphons
+mimes mountaineers exalted disfigure shelves nimble
+flusters derivable potato establishment
+regimen betterment sarape misused balladeer pilling
+besiegers whitens dinky stupid
+kettle borax partnering preppiest
+fisherman dappling mustier fobs figuratively orthopaedists
+jumpiest tundra hybridizing
+inexhaustibly thrower metaphors intones slanted
+insinuated garrison prettifying attests
+stemming shrewdness prigs workweek feebleness abiding distrust
+sternest rowel debater peas adversely enshrouds
+premiss nowhere billion gatherings fetid traded
+misappropriation donations printers
+dethronement holler spurned divisors
+reverts plaza obsequiously permutation
+grandpas tyrants metastases personae hauler eyelash
+outrage shelters soured surlier metronome moonlighted
+mailmen maneuverable mattered seeding dehumanizes
+spiniest dents weightless kookaburras misprinted disorders
+intermediary selling jersey polymaths empathizing
+doubling peaked owlish byline levitates suspense relabels
+autumns wiping dhotis damming twentieth proportion
+potentate bribes rifer moderate verbena desire framing
+twaddle polite pretext mazourka situated
+bilking darling tempera stresses earmarking
+breezes fretted exhumed fertile
+vineyards gingerbread ridgepoles helixes
+deal heppest malignantly tallest ebony
+flexible espressos prioresses linoleum deposed tourism
+sophomore filtering prostitute wasps
+parboiling sine rain unprofessional
+surrey mudslide brilliants planing derail wilder
+environmentally professor frenzies trolled
+watermelons garrisoning imprisonments typified
+busied besetting founders flurried state trill
+hyphened flashiest advertise byline patrons fighter goldsmith
+sightread teazles footfall washbasin molesting
+grainiest lobbing shrouded largest jump geometries
+eluded sophism stages pertly sewerage biplanes maturer travelogs
+fords plaque droned spars misleading sunburn
+serenely shits dialyses roistering registrars pointillists
+bales napes warts mammary referrals fisherman training
+panting battalion greedier allergens orotund
+headers badge bullhorn agglutinating bearable
+analogs departing anguished nylons
+whitewall napkins overheats embittering grimmer beamed
+LEIA A ENTREVISTA #699607
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/ruas
+$ cd ..
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ ls
+associacoes/  automoveis  cena-do-crime  entrevistas/  pessoas  ruas/
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ cd entrevistas
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/entrevistas
+$ ls
+entrevista-000296    entrevista-1250176   entrevista-210355    entrevista-30259493  entrevista-3871242   entrevista-498331    entrevista-591273    entrevista-707438    entrevista-81443363  entrevista-920304
+entrevista-00448418  entrevista-125204    entrevista-218131    entrevista-3049045   entrevista-38899905  entrevista-499096    entrevista-5993978   entrevista-708943    entrevista-822576    entrevista-92391023
+entrevista-00502304  entrevista-125271    entrevista-221039    entrevista-305694    entrevista-3917097   entrevista-50168425  entrevista-60081985  entrevista-7103823   entrevista-8245680   entrevista-92670500
+entrevista-005702    entrevista-1269181   entrevista-223913    entrevista-305949    entrevista-391811    entrevista-50291987  entrevista-604403    entrevista-71186817  entrevista-825165    entrevista-927642
+entrevista-00617019  entrevista-1310392   entrevista-2277882   entrevista-306616    entrevista-39481114  entrevista-504687    entrevista-608607    entrevista-71226767  entrevista-82705993  entrevista-9332386
+entrevista-00805135  entrevista-13768464  entrevista-229443    entrevista-3074127   entrevista-39825862  entrevista-509105    entrevista-6093093   entrevista-71298441  entrevista-831512    entrevista-9346061
+entrevista-016463    entrevista-13889608  entrevista-23167806  entrevista-3099757   entrevista-40534453  entrevista-5143029   entrevista-618764    entrevista-7180973   entrevista-833367    entrevista-93473333
+entrevista-020337    entrevista-13920860  entrevista-2326746   entrevista-312546    entrevista-40610944  entrevista-514793    entrevista-6203192   entrevista-71993338  entrevista-838259    entrevista-93696502
+entrevista-022751    entrevista-1395414   entrevista-23371263  entrevista-3128999   entrevista-409731    entrevista-52280505  entrevista-628618    entrevista-720268    entrevista-8387710   entrevista-938991
+entrevista-0234126   entrevista-141030    entrevista-233800    entrevista-3140662   entrevista-41553314  entrevista-528044    entrevista-63308519  entrevista-7254073   entrevista-8402388   entrevista-9408565
+entrevista-02422821  entrevista-14153840  entrevista-2415821   entrevista-31635890  entrevista-416243    entrevista-529706    entrevista-637657    entrevista-728181    entrevista-8421696   entrevista-94126412
+entrevista-0251720   entrevista-144873    entrevista-243703    entrevista-3201508   entrevista-41814745  entrevista-53318557  entrevista-637928    entrevista-730123    entrevista-8464899   entrevista-9437737
+entrevista-03098229  entrevista-14590717  entrevista-2481877   entrevista-322305    entrevista-4204949   entrevista-535181    entrevista-638121    entrevista-73035802  entrevista-84688694  entrevista-944493
+entrevista-0315125   entrevista-147283    entrevista-250112    entrevista-32365018  entrevista-42161907  entrevista-5372865   entrevista-6417794   entrevista-7305678   entrevista-849256    entrevista-9446528
+entrevista-03316077  entrevista-15187437  entrevista-253705    entrevista-324389    entrevista-4223536   entrevista-538900    entrevista-645385    entrevista-73585672  entrevista-85262552  entrevista-9501580
+entrevista-034070    entrevista-15354942  entrevista-255531    entrevista-325611    entrevista-4225866   entrevista-54026669  entrevista-6553472   entrevista-737609    entrevista-8531248   entrevista-95095182
+entrevista-0349327   entrevista-1536668   entrevista-25582311  entrevista-32639981  entrevista-42396365  entrevista-541518    entrevista-65792229  entrevista-7422077   entrevista-856221    entrevista-95601730
+entrevista-04393507  entrevista-155049    entrevista-25834905  entrevista-32712166  entrevista-4262657   entrevista-5455315   entrevista-659803    entrevista-74225310  entrevista-8586380   entrevista-9618669
+entrevista-044492    entrevista-1578206   entrevista-259909    entrevista-331178    entrevista-42934869  entrevista-54619323  entrevista-66101490  entrevista-7469675   entrevista-861780    entrevista-9620713
+entrevista-0462097   entrevista-159848    entrevista-2601508   entrevista-332596    entrevista-4299898   entrevista-54851634  entrevista-66282920  entrevista-7541406   entrevista-862173    entrevista-9651888
+entrevista-049721    entrevista-16098538  entrevista-26373485  entrevista-33399976  entrevista-4335306   entrevista-549055    entrevista-6643191   entrevista-75434722  entrevista-862717    entrevista-9666149
+entrevista-05297663  entrevista-1642421   entrevista-2642139   entrevista-340396    entrevista-4366523   entrevista-55382746  entrevista-67279454  entrevista-755037    entrevista-8631232   entrevista-97043057
+entrevista-06032377  entrevista-1643440   entrevista-27042476  entrevista-34041151  entrevista-44533008  entrevista-55410365  entrevista-673985    entrevista-75633580  entrevista-86395001  entrevista-9709892
+entrevista-0613334   entrevista-16889008  entrevista-27504937  entrevista-342393    entrevista-4463090   entrevista-55435298  entrevista-676473    entrevista-7580872   entrevista-865918    entrevista-9711852
+entrevista-066291    entrevista-17248453  entrevista-275706    entrevista-34359897  entrevista-448086    entrevista-55477243  entrevista-67790846  entrevista-77014856  entrevista-867999    entrevista-9712946
+entrevista-071537    entrevista-17343208  entrevista-279087    entrevista-344331    entrevista-45615686  entrevista-555536    entrevista-680549    entrevista-770439    entrevista-8700943   entrevista-9728756
+entrevista-0732631   entrevista-174898    entrevista-280877    entrevista-34690644  entrevista-457117    entrevista-5581158   entrevista-6808205   entrevista-77135281  entrevista-87126591  entrevista-97393699
+entrevista-07497003  entrevista-1767435   entrevista-2834518   entrevista-347303    entrevista-457451    entrevista-55841398  entrevista-68195573  entrevista-7791374   entrevista-871877    entrevista-97409610
+entrevista-0768255   entrevista-17827186  entrevista-284560    entrevista-351963    entrevista-466195    entrevista-55984022  entrevista-68488577  entrevista-780255    entrevista-879569    entrevista-980963
+entrevista-092423    entrevista-179719    entrevista-2846076   entrevista-353218    entrevista-4673074   entrevista-565396    entrevista-68764140  entrevista-7863761   entrevista-8819490   entrevista-982013
+entrevista-0953437   entrevista-1811770   entrevista-289524    entrevista-353467    entrevista-46773428  entrevista-566707    entrevista-6884359   entrevista-789564    entrevista-891720    entrevista-9824821
+entrevista-096267    entrevista-18193261  entrevista-290346    entrevista-354262    entrevista-47246024  entrevista-56784802  entrevista-6894000   entrevista-791289    entrevista-896668    entrevista-98912259
+entrevista-102490    entrevista-1823688   entrevista-291440    entrevista-3588302   entrevista-4735823   entrevista-56892213  entrevista-69170457  entrevista-79360358  entrevista-9004767   entrevista-9901455
+entrevista-109118    entrevista-18270219  entrevista-2922290   entrevista-3609204   entrevista-4765278   entrevista-57236791  entrevista-6933068   entrevista-79411932  entrevista-901603    entrevista-9912172
+entrevista-1108561   entrevista-18441251  entrevista-29316965  entrevista-36398447  entrevista-476744    entrevista-5739404   entrevista-699607    entrevista-794525    entrevista-901645    entrevista-992072
+entrevista-114661    entrevista-1850922   entrevista-2939888   entrevista-364735    entrevista-478217    entrevista-5766907   entrevista-70067280  entrevista-7959148   entrevista-90394637  entrevista-99643550
+entrevista-11495001  entrevista-1857368   entrevista-296128    entrevista-36527398  entrevista-48088300  entrevista-5774468   entrevista-70199425  entrevista-796439    entrevista-904020    entrevista-9969223
+entrevista-116803    entrevista-1906958   entrevista-29680692  entrevista-376115    entrevista-48148020  entrevista-5782759   entrevista-703831    entrevista-79667499  entrevista-907126    entrevista-999372
+entrevista-11705111  entrevista-191206    entrevista-29741223  entrevista-37747405  entrevista-483817    entrevista-579105    entrevista-704443    entrevista-79935965  entrevista-9074626
+entrevista-11783660  entrevista-19300543  entrevista-2976680   entrevista-3804339   entrevista-485229    entrevista-5835471   entrevista-70458099  entrevista-7998181   entrevista-911451
+entrevista-11817172  entrevista-1933118   entrevista-29838622  entrevista-3824641   entrevista-4950099   entrevista-586668    entrevista-7046684   entrevista-8095917   entrevista-91673757
+entrevista-1186827   entrevista-19577850  entrevista-2995681   entrevista-38299069  entrevista-4961376   entrevista-58910793  entrevista-7066082   entrevista-809922    entrevista-917210
+entrevista-1205060   entrevista-2058907   entrevista-301018    entrevista-3871205   entrevista-496772    entrevista-5905106   entrevista-706620    entrevista-812725    entrevista-9185205
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/entrevistas
+$ cat entrevista-699607
+Entrevistamos a Srta. Church às 14:04. A testemunha afirmou que não viu ninguém com as características do atirador e que saiu correndo assim que os tiros foram disparados.
+
+No entanto, ela reportou que viu um carro fugindo da cena do crime. Descreveu como um Honda azul, com placa que começa com "L337" e termina com "9".
+
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/entrevistas
+$ cat entrevista-47246024
+A Srta. Sun tem cabelo castanho e não é da Nova Zelândia. Não é a testemunha da cafeteria.
+
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/entrevistas
+$ cd ..
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ ls
+associacoes/  automoveis  cena-do-crime  entrevistas/  pessoas  ruas/
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ head automoveis
+***************
+Informações de automóveis e proprietários obtidas com o
+Departamento de Trânsito da Cidade do Terminal.
+***************
+
+Placa T3YUHF6
+Marca: Toyota
+Cor: Amarela
+Proprietário: Jianbo Megannem
+Altura: 1,68 m
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep Honda automoveis
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+Marca: Honda
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ head L337 automoveis
+head: cannot open 'L337' for reading: No such file or directory
+==> automoveis <==
+***************
+Informações de automóveis e proprietários obtidas com o
+Departamento de Trânsito da Cidade do Terminal.
+***************
+
+Placa T3YUHF6
+Marca: Toyota
+Cor: Amarela
+Proprietário: Jianbo Megannem
+Altura: 1,68 m
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep L337 automoveis
+Placa L337ZR9
+Placa L337P89
+Placa L337GX9
+Placa L337QE9
+Placa L337GB9
+Placa L337OI9
+Placa L337X19
+Placa L337539
+Placa L3373U9
+Placa L337369
+Placa L337DV9
+Placa L3375A9
+Placa L337WR9
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 L337ZR9
+
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 Placa L337ZR9
+grep: L337ZR9: No such file or directory
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 L337ZR9 automoveis
+Placa L337ZR9
+Marca: Honda
+Cor: Vermelho
+Proprietário: Katie Park
+Altura: 1,88 m
+Peso: 85,7 kg
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 L337P89 automoveis
+Placa L337P89
+Marca: Honda
+Cor: Petróleo
+Proprietário: Mike Bostock
+Altura: 1,93 m
+Peso: 78,5 kg
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A L337GX9
+grep: L337GX9: invalid context length argument
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 L337GX9 automoveis
+Placa L337GX9
+Marca: Mazda
+Cor: Laranja
+Proprietário: John Keefe
+Altura: 1,93 m
+Peso: 83,9 kg
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 L337QE9 automoveis
+Placa L337QE9
+Marca: Honda
+Cor: Azul
+Proprietário: Erika Owens
+Altura: 1,96 m
+Peso: 99,8 kg
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 L337GB9 automoveis
+Placa L337GB9
+Marca: Toyota
+Cor: Azul
+Proprietário: Matt Waite
+Altura: 1,86 m
+Peso: 86,2 kg
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 L337OI9 automoveis
+Placa L337OI9
+Marca: Jaguar
+Cor: Azul
+Proprietário: Brian Boyer
+Altura: 1,98 m
+Peso: 91,2 kg
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 L337X19 automoveis
+Placa L337X19
+Marca: Fiat
+Cor: Azul
+Proprietário: Al Shaw
+Altura: 1,96 m
+Peso: 108,9 kg
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 L33X539 automoveis
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 L337X539 automoveis
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 L337539 automoveis
+Placa L337539
+Marca: Honda
+Cor: Azul
+Proprietário: Aron Pilhofer
+Altura: 1,6 m
+Peso: 89,8 kg
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 L3373U9 automoveis
+Placa L3373U9
+Marca: Ford
+Cor: Azul
+Proprietário: Miranda Mulligan
+Altura: 1,98 m
+Peso: 70,8 kg
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 4 L337369 automoveis
+Placa L337369
+Marca: Honda
+Cor: Azul
+Proprietário: Heather Billings
+Altura: 1,58 m
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 L337DV9 automoveis
+Placa L337DV9
+Marca: Honda
+Cor: Azul
+Proprietário: Joe Germuska
+Altura: 1,88 m
+Peso: 74,4 kg
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 L3375A9 automoveis
+Placa L3375A9
+Marca: Honda
+Cor: Azul
+Proprietário: Jeremy Bowers
+Altura: 1,86 m
+Peso: 92,5 kg
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 L337WR9 automoveis
+Placa L337WR9
+Marca: Honda
+Cor: Azul
+Proprietário: Jacqui Maher
+Altura: 1,88 m
+Peso: 59,0 kg
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ ls
+associacoes/  automoveis  cena-do-crime  entrevistas/  pessoas  ruas/
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ cd associacoes
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/associacoes
+$ ls
+AAA  AAdvantage  Academia_Fitness  Associação_de_ExAlunos  Biblioteca_da_Cidade  Clube_de_Campo  Costco  Delta_SkyMiles  Museu_da_História_do_Bash  REI  United_Clube_de_Pontos
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/associacoes
+$ grep Joe AAA
+Joe Germuska
+Joel Giordano
+Joel Tverdohlib
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/associacoes
+$ grep Jeremy AAA
+Jeremy Bowers
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/associacoes
+$ grep Jacqui AAA
+Jacqui Maher
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/associacoes
+$ grep Joe Delta_SkyMiles
+Joel Kammerichs
+Joel Csernoviczki
+Joel Scanlan
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/associacoes
+$ grep Jeremy Delta_SkyMiles
+Jeremy Bowers
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/associacoes
+$ grep Jacqui Delta_SkyMiles
+Jacqui Maher
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/associacoes
+$ grep Jeremy Biblioteca_da_Cidade
+Jeremy Bowers
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/associacoes
+$ grep Jacqui Biblioteca_da_Cidade
+Jacqui Maher
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/associacoes
+$ grep Jeremy Museu_da_História_do_Bash
+Jeremy Bowers
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/associacoes
+$ grep Jacqui Museu_da_Historia_do_Bash
+grep: Museu_da_Historia_do_Bash: No such file or directory
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/associacoes
+$ grep Jacqui Museu_da_História_do_Bash
+Jacqui Maher
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio/associacoes
+$ cd ..
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ ls
+associacoes/  automoveis  cena-do-crime  entrevistas/  pessoas  ruas/
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep -A 5 Jeremy Bowers pessoas
+grep: Bowers: No such file or directory
+pessoas:Jeremy Bowers   M       34      Travessa Dunstable, linha 284
+pessoas-Daniel Marburg  M       58      Rua Boyd, linha 241
+pessoas-Camille Gao     M       19      Rua Ivy, linha 370
+pessoas-Todor Hernandez M       87      Rua Bennet, linha 217
+pessoas-Juan Shankland  M       74      Rua Priesing, linha 271
+pessoas-Elizabeth Veljkovic     F       73      Rua Cowing, linha 423
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ grep Jacqui Maher pessoas
+grep: Maher: No such file or directory
+pessoas:Jacqui Maher    F       40      Travessa Andover, linha 224
+
+girls@LAPTOP-1DE1H6E5 MINGW64 ~/Desktop/Labenu/assassinato-na-linha-de-comando/assassinato-na-linha-de-comando/misterio
+$ 
