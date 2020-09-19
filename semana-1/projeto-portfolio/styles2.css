@@ -12,6 +12,19 @@ body >p {
     margin-right: -50%;
     transform: translate(-50%, -50%) }
 
+.hab{
+        position: absolute;
+        right: 23%;
+        left: 30%;
+        bottom: 50%;
+        border: thin silver solid;
+        background: white;
+        border-radius: 10px;
+    }
+.hab > p{
+    margin-left: 2%;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    }
 
 nav{ width: 200px;}
 
@@ -23,6 +36,10 @@ margin-left: 20px;
 padding-bottom: 30px;
 text-decoration: none;
 }
+.categ{
+  position: absolute;
+  right: 75%;
+}
 #menu{ background-color: white;
     text-align: center;
     font-family: 'Cambria';
@@ -32,6 +49,9 @@ text-decoration: none;
     padding: 30px;
     margin:0;
     margin-left: 20px;
+}
+.galeria{
+    padding: 9px;
 }
 nav > a  { background-color:rgba(255, 255, 255, 0.753);
     color: black;
@@ -53,7 +73,7 @@ figure{
   margin: 0.5em;
   padding: 0.5em;
 }
-.logo{
+.figure{
     float: right;
     width: 30%;
     text-align: center;
@@ -65,9 +85,43 @@ figure{
     margin: 0.5em;
     padding: 0.5em;
   }
+.logo1{
+    float: right;
+    width: 30%;
+    text-align: center;
+    font-style: italic;
+    font-family: 'Cambria';
+    font-size: smaller;
+    text-indent: 0;
+    border: thin silver solid;
+    margin: 0.5em;
+    padding: 0.5em;
+  }
+  .logo2{
+    float: right;
+    width: 30%;
+    text-align: center;
+    font-style: italic;
+    font-family: 'Cambria';
+    font-size: smaller;
+    text-indent: 0;
+    border: thin silver solid;
+    margin: 0.5em;
+    padding: 0.5em;
+  }
+
 header{
     background-color: white;
     padding: 50px;
+}
+  .logoPortfolio{
+    float: left;
+    width: 10%;
+    text-align: center;
+    font-style: italic;
+    font-family: 'Cambria';
+    font-size: smaller;
+    text-indent: 0;
 }
 footer{
     text-align: center;
@@ -75,5 +129,5 @@ footer{
     width: 100%;
     bottom: 0%;
     position: fixed;
-    padding: 47px;
+    padding: 24px;
 }
