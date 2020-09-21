@@ -59,9 +59,6 @@ div img {
     text-align: center;
 }
 
-.icone {
-    height: 15px;
-}
 
 
 /** 
@@ -138,6 +135,15 @@ td img{
 .container-do-search {
     margin-top: 20px;
     height: 100px;
+}
+.icone {
+    height: 15px;
+}
+.icone:hover {
+    opacity: 0.5;
+}
+.icone:active {
+    opacity: 1;
 }
 div input{
     border: none;
