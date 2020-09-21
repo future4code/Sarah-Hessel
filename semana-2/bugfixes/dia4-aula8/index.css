@@ -113,6 +113,7 @@ div img{
 table {
     width: 60%;
     text-align: center;
+    margin: auto;
 }
 
 td button {
@@ -149,6 +150,7 @@ div input{
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    margin-top: 10%;
 }
 
 #back-button:hover {
