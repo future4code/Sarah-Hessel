@@ -76,9 +76,12 @@ div img {
     padding-top: 5%;
     font-size: 17px;
 }
-#container-de-descricao>ol {
-    padding: 15px 0px;
-    
+#container-de-descricao> ol {
+    padding: 15px;
+    list-style-position: inside;
+}
+#container-de-descricao> h3{
+    font-size: 17px;
 }
 
 #container-para-comprar {
