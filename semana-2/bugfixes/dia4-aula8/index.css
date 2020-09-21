@@ -133,6 +133,10 @@ td img{
     margin-top: 20px;
     height: 100px;
 }
+div input{
+    border: none;
+    border-bottom: 2px #000 solid;
+}
 
 
 #back-button {
