@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+}
+header{
+    display: flex;
+    height: 80px;
+    background-color: rgb(177, 122, 40);
+    width: 100%;
+    
+}
+form{
+    position: absolute;
+    display: flex;
+    height: 35px;
+    right: 300px;
+    top: 30px;
+}
+.grid{
+    display: grid;
+    grid-gap: 10px;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2,1fr);
+    padding-left: 90px;
+}
+img{
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 260px;
+    height: 260px;   
+}
+p{
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 260px;
+}
+footer{
+    background-color: rgb(51, 63, 85);
+    position: fixed;
+    height: 30px;
+    bottom:0;
+    width: 100%;
+
+}
