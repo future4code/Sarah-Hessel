@@ -1,6 +1,12 @@
 *{
     font-family: "Calibri";
 }
+@media (max-width: 400px) {  
+    .grid{
+        display: flex;
+        flex-direction: column;
+    }
+}
 body{
     margin: 0;
 }
@@ -37,19 +43,16 @@ form{
     grid-auto-flow: column;
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(2,1fr);
-    padding-left: 90px;
-    padding-top: 20px;
+    padding-left: 10em;
+    padding-top: 4em;
 }
 #img{
     border: 2px solid black;
     border-radius: 5px;
-    width: 260px;
-    height: 200px;   
+    width: 15vw;
+    height: 13vw;   
 }
 p{
-    border-right: 1px solid black;
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
     text-align: center;
     color: black;
     border-radius: 1px;
