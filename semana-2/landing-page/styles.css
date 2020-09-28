@@ -201,11 +201,7 @@ footer .botao:hover{
 }
 
 @media screen and (min-width: 760px){
-*{
-    p{
-        font-size: 20px;
-    }
-}
+
     nav{
         width: 100%;
         flex-direction: row;
