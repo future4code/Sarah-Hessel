@@ -1,0 +1,226 @@
+/*Corpo*/
+
+body{
+    margin: 0;
+    font-family: Nunito, sans-serif;
+
+}
+.botao{
+    color:white;
+    text-decoration: none;
+    padding:10px 30px;
+    background-color: #222226;
+    border: 2px solid 222226;
+    font-size: .9em;
+    border-radius: 3px;
+}
+.botao:hover{
+    background-color: #4a4a57;
+}
+/*Navegação*/
+
+#logo{
+   position: absolute;
+   width: 120px;
+   height: 120px;
+   margin: 10px;
+   background-color: white;
+   padding: 5px;
+   top: 15px;
+}
+#fundo{
+    display: flex;
+    height: 50vw;
+    width: 80vw;
+}
+nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1F1F24;
+}
+nav > a{
+    text-decoration: none;
+    font-size: 32px;
+    font-family: Yellowtail, serif;
+}
+nav > ul{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    padding:0;
+    width: 100%;        /*responsivo - com isso o menu ira ocupar 
+                        toda a tela de onde estiver sendo exibido*/
+}
+nav ul li a{
+    display: inline-block;
+    padding: 10px;
+    width: 100%;
+    text-decoration: none;
+    color: white;
+}
+
+/*Cabeçalho*/
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("img/img.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: centers;
+    padding-top: 20px;
+    text-align: center;
+    color: white;
+
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* a unidade fr é maleavél ao tamanho da tela do dispositivo*/
+    grid-auto-rows: 380px;
+}
+header h1{
+    font-weight: bold;
+}
+header p{
+    margin-bottom: 2em;
+}
+#credito{
+    background-color: #49464394;
+    margin:10px;
+}
+#sistema{
+ background-color:#49464394;
+ margin:10px;
+}
+
+/* Sobre */
+
+#sobre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #D9C7B8;
+}
+#sobre p{
+    margin-bottom: 2.5em;
+    max-width: 1000px;
+}
+#sobre .botao{
+    background-color: rgb(122, 115, 115);
+    color: black;
+}
+#sobre .botao:hover{
+    background-color: white;
+}
+/*Serviços*/
+
+#serviços{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+}
+
+/*Time*/
+
+#time{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #F2EDE9;
+}
+
+/*Doação*/
+
+#doaçao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-image: url("img/favela.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#doaçao > div{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.699);
+}
+#doaçao div h2{
+    border-bottom: 2px solid white;
+}
+
+#doaçao > h4{
+    margin-top: 0em;
+ }
+ #doaçao > p{
+     margin-bottom: 4em;
+ }
+ .container{
+     display: flex;
+     flex-direction: column;
+     margin-top: 10px;
+ }
+
+/*Contato*/
+
+#contato{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #F2EDE9;
+}
+
+/*Rodapé*/
+
+footer{
+    background-color: #1F1F24;
+    text-align: center;
+    color: white;
+    height: 60px;
+    bottom: 0;
+    width: 100%;
+    padding-top: 30px;
+}
+footer a{
+    text-decoration: none;
+}
+footer .botao{
+    color: black;
+    background-color: white;
+}
+footer .botao:hover{
+    background-color: rgb(197, 185, 185);
+}
+
+@media screen and (min-width: 760px){
+
+    nav{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    nav ul{
+        flex-direction: row;
+        width: 70%;
+       
+    }
+    nav li{
+        border-right: 1px solid white;
+    }
+    nav img{
+        width: 140px;
+        height: 120px;
+    }
+
+    /*Cabeçalho*/
+   
+}
