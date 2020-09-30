@@ -1,0 +1,74 @@
+*{
+    font-family: "Calibri";
+}
+@media (max-width: 400px) {  
+    .grid{
+        display: flex;
+        flex-direction: column;
+    }
+}
+body{
+    margin: 0;
+}
+header{
+    display: flex;
+    height: 80px;
+    color: white;
+    background-color:rgb(223, 117, 69);
+    width: 100%;
+    
+}
+header > h1{
+    position: absolute;
+    left: 30px;
+}
+form{
+    position: absolute;
+    display: grid;
+    height: 35px;
+    right: 300px;
+    top: 30px;
+}
+#busca{
+    background-color:rgb(223, 117, 69);
+    border: none;
+    border-bottom: 2px solid white;
+}
+#lupa{
+    height: 20px;
+    width: 20px;
+}
+.grid{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2,1fr);
+    padding-left: 10em;
+    padding-top: 4em;
+}
+#img{
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 15vw;
+    height: 13vw;   
+}
+p{
+    text-align: center;
+    color: black;
+    border-radius: 1px;
+    width: 260px;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid black;
+    color: rgb(223, 117, 69);
+    position: fixed;
+    height: 70px;
+    bottom:0;
+    width: 100%;
+}
+#video{
+    padding: 30px;
+    height: 450px;
+}
