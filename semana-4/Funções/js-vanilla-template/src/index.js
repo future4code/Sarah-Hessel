@@ -1,4 +1,4 @@
-// Interpretação de códigos
+// --------Interpretação de códigos--------
 // 1)
 
 function minhaFuncao(variavel) {
@@ -43,7 +43,7 @@ const metodo = (array) => {
   
 
 
-// Códigos escritos 
+// --------Códigos escritos-------- 
 
 // 4) a)
 
@@ -137,10 +137,12 @@ contadorDeArray(array)
 
 let verificandoNumeroPar = (numero) =>{
   if (numero % 2 === 0){
-    return "true, é par";
+    return true;             // Correção: para quando for chamar a função em outra função, estar explicito o true e o false.
+    // return "true, é par"; 
   }
   else{
-    return "false, é ímpar";
+    return false;
+    // return "false, é ímpar";
   }
 }
 verificandoNumeroPar(2)
@@ -150,7 +152,7 @@ verificandoNumeroPar(2)
 
 let contatadorDePares = (array) =>{
   let numPares = []
-  for(i = 0; i < array.length; i++){
+  for(let i = 0; i < array.length; i++){
     if (array[i] % 2 === 0){
       numPares.push(array[i])
     }
@@ -160,5 +162,57 @@ let contatadorDePares = (array) =>{
 contatadorDePares(array)
 
 
-// d)
+// d) 
+
+let contatadorDePares = (array) =>{
+  let numPares = []
+  for(let i = 0; i < array.length; i++){
+    if (verificandoNumeroPar(array[i])){
+      numPares.push(array[i])
+    }
+  }
+  return numPares.length
+}
+contatadorDePares(array)
+
+
+// --------DESAFIOS--------
+
+// 1) a)
+
+let arrowFunction = (parametro) =>{
+  console.log(parametro)
+}
+arrowFunction(2)
+
+
+// b)
+
+let arrowFunction2 = (param1, param2) =>{
+  const soma = param1 + param2;
+  arrowFunction(soma)
+}
+arrowFunction2(2, 3)
+
+
+// 2) 
+
+const numeros = [0, 8, 23, 16, 10, 15, 41, 12, 13]
+
+// a) ---Faltando a multi por 2---
+
+let numParesEMulti2 = (numeros) =>{
+  let paresEMulti2 = []
+  for(let i = 0; i < numeros.length; i++){
+    if(numeros[i] % 2===0){
+      paresEMulti2.push(numeros[i])
+    }
+  }
+  console.log(paresEMulti2)
+}
+numParesEMulti2(numeros)
+
+
+// b) 
+
 
