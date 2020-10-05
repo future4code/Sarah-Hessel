@@ -122,3 +122,43 @@ repetirDezVezes("Sou a frase atrevida, vou aparecer no seu terminal 10 vezes! :p
 
 
 // 6)
+
+const array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
+
+// a) 
+
+let contadorDeArray = (array) =>{
+  return array.length
+}
+contadorDeArray(array)
+
+
+// b)
+
+let verificandoNumeroPar = (numero) =>{
+  if (numero % 2 === 0){
+    return "true, é par";
+  }
+  else{
+    return "false, é ímpar";
+  }
+}
+verificandoNumeroPar(2)
+
+
+// c)
+
+let contatadorDePares = (array) =>{
+  let numPares = []
+  for(i = 0; i < array.length; i++){
+    if (array[i] % 2 === 0){
+      numPares.push(array[i])
+    }
+  }
+  return numPares.length
+}
+contatadorDePares(array)
+
+
+// d)
+
