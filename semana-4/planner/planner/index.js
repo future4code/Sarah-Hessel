@@ -31,5 +31,9 @@ function criarTarefa () {
             document.getElementById("sabado").innerHTML += `<li>${inputTarefa.value}</li>`
             break    
     }
+
+    
+    document.getElementById(id).style.property = new style
     inputTarefa.value = "" // Essa linha serve para limpar o value do input, após cada adição na lista.
 }
+
