@@ -96,19 +96,13 @@ function filtrarDespesas(){
     let valorMin = Number(document.getElementById('valorFiltroMin').value)
     let valorMax = Number(document.getElementById('valorFiltroMax').value)
 
-
-    let despesasFiltradas = arrDespesas.filter((despesa) =>{ // AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
-        if((tipoFiltro === despesa.tipo) || (tipoFiltro === "todos") && (despesa.valor >= valorMin) && (despesa.valor <= valorMax)){
-            return true
-        } 
-    })       
-    imprimirDespesas(despesasFiltradas)                          
+        let despesasFiltradas = arrDespesas.filter((despesa) =>{        // AQUI NESSA VARIÁVEL VEM A IMPLEMENTAÇÃO
+            if((tipoFiltro === despesa.tipo) || (tipoFiltro === "todos") && (despesa.valor >= valorMin) && (despesa.valor <= valorMax)){
+                return true
+            } 
+        })       
+        imprimirDespesas(despesasFiltradas)           
 }
-
-
-
-
-
 
 
 // FunÇoes que fazem validaÇoes dos inputs de criaÇao de despesas 
