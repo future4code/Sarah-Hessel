@@ -27,3 +27,108 @@ Ex. 3
     
 
 */
+
+
+// Exercícios de Lógica de Programação
+
+/* 1) while, for e for of. */
+
+let contador = 0;
+
+while( contador < 5 ){
+ console.log(`contador = ${contador}`);
+ contador += 1;
+}
+console.log("ACABOU !!!!");
+
+
+/* 2) 
+
+const booleano1 = true
+const booleano2 = false
+const booleano3 = !booleano2 - true
+const booleano4 = !booleano3 - false
+
+a) true && false && false
+
+b) (true && false) || !false
+
+c) (false || true) && (false || true)
+
+d) !(true && false) || !(false && false)
+
+e) !(false) && !(true) || (!true && true && true) */
+
+
+/* 3) O código não funcionava, pois faltava a ação do usuario de digitar um valor implementado na nº linha
+  e o incremento da variavél i na nº linha. */ 
+
+let quantidadeDeNumerosPares = prompt("Digite um número: ")
+let i = 0
+while(i <= quantidadeDeNumerosPares){
+    console.log(i*2)
+    i++
+}
+    
+    
+// 4) 
+    
+let triangulo = (a, b, c) =>{
+  if(a === b && b === c){
+    return "O triângulo possui todos os lados iguais, portanto, é um Equilátero!"
+  }
+  else if(a === b || b === c || c === a ){
+    return "O triângulo possui dois lados iguais, portanto, é um Isósceles!"
+  }
+  else{
+    return "O triângulo possui todos os lados diferentes, portanto, é um  Escaleno!"
+  }
+}
+triangulo(2, 3, 4)
+    
+    
+// 5) 
+    
+let doisNumeros = (num1, num2) =>{
+  if(num1 > num2){
+    console.log(`O maior é: ${num1}`)
+  }
+  else if(num2 > num1){
+    console.log(`O maior é: ${num2}`)
+  }
+  else{
+    console.log(`Os números são iguais: ${num1} e ${num2}`)
+  }
+    
+    
+  if(num1 % num2 === 0){
+    console.log(`O ${num1} é divisível por ${num2}`)
+  }
+  else{
+    console.log(`O ${num1} não é divisível por ${num2}`)
+  }
+    
+    
+  if(num2 % num1 === 0){
+    console.log(`O ${num2} é divisível por ${num1}`)
+  }
+  else{
+    console.log(`O ${num2} não é divisível por ${num1}`)
+  }
+    
+        
+  if(num1 > num2){
+    let diferenca = num1 - num2
+    console.log(`A diferença entre os eles é de ${diferenca}`)
+  }
+  else if(num2 > num1){
+    let diferenca = num2 - num1
+    console.log(`A diferença entre eles é de ${diferenca}`)
+  }
+  else{
+    console.log("Os números são iguais")
+  }
+        
+}
+doisNumeros(10, 20)
+    
