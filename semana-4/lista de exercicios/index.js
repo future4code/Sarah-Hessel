@@ -131,4 +131,34 @@ let doisNumeros = (num1, num2) =>{
         
 }
 doisNumeros(10, 20)
-    
+
+
+// Exercícios de Objetos
+
+// 1) 
+
+let criaRetangulo = (lado1, lado2) =>{
+  let infos = {
+    largura: lado1,
+    altura: lado2,
+    perimetro: (2 * (lado1 + lado2)),
+    area: (lado1 * lado2)
+  }
+  console.log(infos)
+}
+criaRetangulo(10, 20)
+
+// 2)
+
+let filmePreferido = {
+  titulo: "Toy Story",
+  ano: "franquia iniciada em 1995",
+  diretor: "John Lasseter",
+  atoresAtrizes: ["Joan Cusack", " Tom Hanks", " Annie Potts", " e Tim Allen"]
+}
+console.log(`Venha assistir ao filme ${filmePreferido.titulo}, ${filmePreferido.ano},
+dirigido por ${filmePreferido.diretor} e estrelado por ${filmePreferido.atoresAtrizes}.`)
+
+// 3)  
+
+
