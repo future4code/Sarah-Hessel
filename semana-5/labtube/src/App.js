@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './logo.png';
+import lupa from './lupa.png';
 import './App.css';
 
 function App() {
@@ -11,8 +12,12 @@ function App() {
     <div>
       <div class="tela-inteira">
         <header>
-            <h1>Lab Tube</h1>
-            <input type="text" placeholder="Busca" id="campoDeBusca" />
+            <img src={logo}></img>
+            <h1>LabTube</h1>
+            <input type="text" placeholder="Pesquisar" id="campoDeBusca" />
+            <button type="button" id="botão">
+            <img src={lupa} id="lupa"></img>
+            </button>
         </header>
 
         <main>
