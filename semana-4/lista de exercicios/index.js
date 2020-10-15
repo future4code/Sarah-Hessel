@@ -162,3 +162,7 @@ dirigido por ${filmePreferido.diretor} e estrelado por ${filmePreferido.atoresAt
 // 3)  
 
 
+// Exercícios de função
+
+// 1)
+
