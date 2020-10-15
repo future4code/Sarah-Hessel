@@ -27,6 +27,12 @@ let jogo = confirm("Quer iniciar uma nova rodada?")
       while(pontuacaoUsu < 21 ){
 
       }
+       + "\n"+ "Deseja comprar mais uma carta?")
+      
+      
+       pontuacaoUsu = carta1Usu.valor + carta2Usu.valor
+       pontuacaoPc = carta1PC.valor + carta2PC.valor
+
       console.log(`Usuário - cartas: ${carta1Usu.texto} ${carta2Usu.texto}  - pontuação ${pontuacaoUsu} `)
       console.log(`Usuário - cartas: ${carta1PC.texto} ${carta2PC.texto}  - pontuação ${pontuacaoPc} `)
 
