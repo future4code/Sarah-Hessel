@@ -19,6 +19,14 @@ let jogo = confirm("Quer iniciar uma nova rodada?")
          carta2Pc = comprarCarta()
       }
       confirm(`Suas cartas são ${carta1Usu.texto} ${carta2Usu.texto}. A carta revelada do computador é ${carta1PC.texto}.`
+      + "\n"+ "Deseja comprar mais uma carta?")
+      
+      pontuacaoUsu = carta1Usu.valor + carta2Usu.valor
+      pontuacaoPc = carta1PC.valor + carta2PC.valor
+
+      while(pontuacaoUsu < 21 ){
+
+      }
        + "\n"+ "Deseja comprar mais uma carta?")
       
       
