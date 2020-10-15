@@ -1,0 +1,19 @@
+
+.smallcard-container{
+    border: 1px solid black;
+    padding: 30px 13px;
+    display: flex;
+    align-items: center;
+    
+}
+.smallcard-container > div > p{
+    padding-left: 5px;
+}
+.smallcard-container >div{
+    display: flex;
+    padding-left: 3px;
+    
+}
+.smallcard-container >img{
+    width: 35px;
+}
