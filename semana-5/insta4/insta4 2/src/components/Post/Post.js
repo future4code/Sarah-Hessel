@@ -2,11 +2,11 @@ import React from 'react'
 import './Post.css'
 
 import {IconeComContador} from '../IconeComContador/IconeComContador'
-
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
+import Marcador from '../Marcacao/Marcacao'
 
 class Post extends React.Component {
   state = {
@@ -18,6 +18,17 @@ class Post extends React.Component {
 
   onClickCurtida = () => {
     console.log('Curtiu!')
+
+    this.setState({                 // icone preto de Curtir (coração) mudará de cor ao ser clicado.
+      curtido: !this.state.curtido
+    })
+
+    if(!this.state.curtido){
+       this.setState ({ numeroCurtidas: this.state.numeroCurtidas + 1 })
+    }else{
+      this.setState ({ numeroCurtidas: this.state.numeroCurtidas - 1 })
+    }
+    
   }
 
   onClickComentario = () => {
@@ -31,6 +42,9 @@ class Post extends React.Component {
       comentando: false,
       numeroComentarios: this.state.numeroComentarios + 1
     })
+  }
+  onClickMarcador = () => {
+    
   }
 
   render() {
@@ -59,16 +73,18 @@ class Post extends React.Component {
       <div className={'post-footer'}>
         <IconeComContador
           icone={iconeCurtida}
-          onClickIcone={this.onClickCurtida}
-          valorContador={this.state.numeroCurtidas}
+          onClickIcone={this.onClickCurtida}       // eles vem das variaveis declaradas acima do render.
+          valorContador={this.state.numeroCurtidas} 
         />
-
         <IconeComContador
           icone={iconeComentario}
           onClickIcone={this.onClickComentario}
           valorContador={this.state.numeroComentarios}
         />
-      </div>
+    </div>
+    <div className={'post-descricao'}>
+        <p>{this.props.descricaoFoto}</p>
+    </div>
       {componenteComentario}
     </div>
   }
