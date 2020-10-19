@@ -7,6 +7,10 @@ import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
 import Marcador from '../Marcacao/Marcacao'
+import styled from 'styled-components'
+
+//Estilização
+
 
 class Post extends React.Component {
   state = {
@@ -64,7 +68,7 @@ class Post extends React.Component {
 
     return <div className={'post-container'}>
       <div className={'post-header'}>
-        <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
+        <img className={'user-photo'} src={this.props.fotoUsuario} alt={'usuario'}/>
         <p>{this.props.nomeUsuario}</p>
       </div>
 
@@ -73,7 +77,7 @@ class Post extends React.Component {
       <div className={'post-footer'}>
         <IconeComContador
           icone={iconeCurtida}
-          onClickIcone={this.onClickCurtida}       // eles vem das variaveis declaradas acima do render.
+          onClickIcone={this.onClickCurtida}       // vem das variaveis declaradas acima do render.
           valorContador={this.state.numeroCurtidas} 
         />
         <IconeComContador

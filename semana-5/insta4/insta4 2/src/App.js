@@ -1,6 +1,45 @@
 import React from 'react';
 import './App.css';
 import Post from './components/Post/Post';
+import styled from 'styled-components'
+
+//Estilização
+
+const Formulario = styled.div`
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 3fr;
+  margin-left: 580px;
+  margin-right: 600px;
+  
+`
+const Botao = styled.button`
+  position: block;
+  margin-left: 700px;
+  border: 1px solid black;
+  border-radius: 40px;
+  width: 80px;
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  
+`
+const Postagem = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+const Titulo = styled.h2`
+  color: black;
+  margin-right: 160px;
+  margin-bottom: 5px;
+  font-size: 21px;
+`
+const Texto1 = styled.p`
+  font-size: 14px;
+  margin-right: 6px;
+`
+
 
 class App extends React.Component {
   state = {
@@ -26,7 +65,8 @@ class App extends React.Component {
     ],
     valorInputPessoa: "",
     valorInputFoto: "",
-    valorInputPostagem: ""
+    valorInputPostagem: "",
+    valorInputDescricao: ""
 
   };
 
@@ -34,14 +74,16 @@ class App extends React.Component {
     const novaPostagem = {
       nomeUsuario: this.state.valorInputPessoa,
       fotoUsuario: this.state.valorInputFoto,
-      fotoPost: this.state.valorInputPostagem
+      fotoPost: this.state.valorInputPostagem,
+      descricaoFoto: this.state.valorInputDescricao
       
     };
-    const novoPessoas = [...this.state.pessoas, novaPostagem];
+    const novoPessoas = [novaPostagem, ...this.state.pessoas];
     this.setState({pessoas: novoPessoas})
     this.setState({ valorInputPessoa: "" });
     this.setState({ valorInputFoto: "" });
     this.setState({ valorInputPostagem: "" });
+    this.setState({ valorInputDescricao: "" });
   };
   onChangeInputPessoa = (event) =>{
     this.setState({valorInputPessoa: event.target.value});
@@ -51,6 +93,9 @@ class App extends React.Component {
   };
   onChangeInputPostagem = (event) =>{
     this.setState({valorInputPostagem: event.target.value});
+  };
+  onChangeInputDescricao = (event) =>{
+    this.setState({valorInputDescricao: event.target.value});
   };
 
 
@@ -69,27 +114,39 @@ class App extends React.Component {
 
     return (
       
-      <div>
+    <div>
+      <Postagem className="Postagem">
+        <Titulo>Faça uma postagem</Titulo>
+        <Texto1>Compartilhe momentos incríveis com os seus amigos :) </Texto1>
+      </Postagem>
+      <Formulario>
         <input
         value = {this.state.valorInputPessoa}
-        placeholder = "Usuario"
         onChange = {this.onChangeInputPessoa}
+        placeholder = "Seu usuário"
         />
         <input
         value = {this.state.valorInputFoto}
-        placeholder = "URL Foto de perfil"
         onChange = {this.onChangeInputFoto}
+        placeholder = "Seu rostinho aqui (URL)"
         />
         <input
         value = {this.state.valorInputPostagem}
-        placeholder = "URL postagem"
         onChange = {this.onChangeInputPostagem}
+        placeholder = "Importe uma foto (URL)"
         />
-        <div>
-        <button onClick={this.adicionaPessoa}> Postar</button>
-        </div>
-        <div>{listaDeComponentes}</div>
+        <input
+        id="descricao"
+        value = {this.state.valorInputDescricao}
+        onChange = {this.onChangeInputDescricao}
+        placeholder = "Descrição do seu post"
+        />
+      </Formulario>
+      <div>
+        <Botao onClick={this.adicionaPessoa}> Postar</Botao>
       </div>
+        <div>{listaDeComponentes}</div>
+    </div>
     );
   }
 }
