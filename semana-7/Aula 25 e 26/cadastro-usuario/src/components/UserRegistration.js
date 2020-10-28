@@ -3,28 +3,41 @@ import styled from 'styled-components'
 
 //Estilização
 
-const RegistrationContainer = styled.div`
-display: grid;
-grid-template-columns: 1fr 3fr 4fr;
-`
 const Form = styled.form`
 display: flex;
-padding-left: 20em;
 flex-direction: column;
 align-items: center;
 border: 1px solid black;
 
 `
 export class UserRegistration extends React.Component{
+    state = {
+        nameValue: "",
+        emailValue: "",
+    }
+
+    onChangeNameValue = (event) =>{
+        this.setState({nameValue: event.target.value})
+    }
+    onChangeEmailValue = (event) =>{
+        this.setState({emailValue: event.target.value})
+    }
+
     render(){
         return (
-            <RegistrationContainer>
+            <div>
                 <Form>
-                    <label>Nome: <input type="text" id="User" name="Name" /> </label>
-                    <label>Email: <input type="text" id="User" name="Email"/></label>
+                    <label>Nome: 
+                    <input value={this.state.nameValue} 
+                    onChange={this.onChangeNameValue} /> 
+                    </label>
+                    <label>Email: 
+                    <input value={this.state.emailValue} 
+                    onChange={this.onChangeEmailValue}/>
+                    </label>
                     <button>Enviar</button>
                 </Form>
-            </RegistrationContainer>
+            </div>
           );
     }
 }

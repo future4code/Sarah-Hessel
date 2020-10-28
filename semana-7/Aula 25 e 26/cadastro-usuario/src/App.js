@@ -1,18 +1,25 @@
 import React from 'react';
-import styled from 'styled-components'
 import {UserRegistration} from './components/UserRegistration'
 import {UserList} from './components/UserList'
 
-//Estilização
 
-function App() {
-  return (
-    <div>
-      <button>bb</button>
-      <UserRegistration/>
-      
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    userRegistration: true
+  }
+  changePage = () => {
+    this.setState({userRegistration: !this.state.userRegistration})
+  }
+  render(){
+    const currentPage = this.state.userRegistration ? ( <UserRegistration/>) : ( <UserList/>)
+    return (
+      <div>
+        {currentPage}
+        <button onClick={this.changePage}>Mudar de pagina</button>
+        
+      </div>
+    );
+  }
 }
 
 export default App;
