@@ -11,7 +11,7 @@ class App extends React.Component {
     this.setState({userRegistration: !this.state.userRegistration})
   }
   render(){
-    const currentPage = this.state.userRegistration ? ( <UserRegistration/>) : ( <UserList/>)
+    const currentPage = this.state.userRegistration ? ( <UserRegistration/>) : ( <UserList/>)   //ternario
     return (
       <div>
         {currentPage}

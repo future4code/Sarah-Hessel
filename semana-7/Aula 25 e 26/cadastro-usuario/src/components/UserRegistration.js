@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import styled from 'styled-components'
 
@@ -16,10 +17,27 @@ export class UserRegistration extends React.Component{
         emailValue: "",
     }
 
-    onChangeNameValue = (event) =>{
+    createUser = () => {
+        const body = {     // body da requisição Post
+            name: this.state.nameValue,
+            email: this.state.emailValue
+        }
+        axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users", body, {
+            headers:{
+                Authorization: "sarah-pereira-dumont"
+            }
+        }).then(() => {                // já que o response não está sendo usado, pode ser substituido por um ().
+            alert("Usuário criado com sucesso!! :D")       // mensagem de sucesso
+            this.setState({nameValue:"", emailValue:""})  // limpar os inputs
+        }).catch(error => {          //mensagem de erro, caso dê
+            console.log("error.message")
+        })
+            
+    };
+    onChangeNameValue = (event) => {
         this.setState({nameValue: event.target.value})
     }
-    onChangeEmailValue = (event) =>{
+    onChangeEmailValue = (event) => {
         this.setState({emailValue: event.target.value})
     }
 
@@ -35,7 +53,7 @@ export class UserRegistration extends React.Component{
                     <input value={this.state.emailValue} 
                     onChange={this.onChangeEmailValue}/>
                     </label>
-                    <button>Enviar</button>
+                    <button onClick={this.createUser}>Enviar</button>
                 </Form>
             </div>
           );
