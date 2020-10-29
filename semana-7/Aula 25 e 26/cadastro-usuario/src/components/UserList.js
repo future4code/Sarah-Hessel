@@ -28,6 +28,16 @@ export class UserList extends React.Component{
         }).catch(error => {
             console.log(error.message)
         })
+
+        // ESSA É A SINTAXE DO ASYNC E AWAI (COLOQUE UM ASYNC NA FUNÇÃO GETTALLUSERS)
+        // try{
+        //     const response = await axios.get(baseUrl, axiosConfig)
+
+        //    this.setState({ userList: response.data});
+        // } catch(error){
+        //     console.log(error.message)
+        // }
+
     }
         
     deleteUser = (userId) => {
