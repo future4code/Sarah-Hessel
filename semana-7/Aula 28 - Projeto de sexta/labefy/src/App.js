@@ -1,15 +1,13 @@
 import React from 'react';
 import './App.css';
-import {PlaylistCreator} from './components/PlaylistCreator'
-import {UserList} from './components/UserList'
+import { UserList } from './components/UserList'
 
-class App extends React.Component{
+class App extends React.Component {
 
-  render(){
+  render() {
     return (
       <div>
-      <PlaylistCreator/>
-      <UserList/>
+        <UserList/>
       </div>
     );
   }
