@@ -29,7 +29,7 @@ const SecaoComentario = (props) => {
 				value={inputComentario}
 				onChange={onChangeComentario}
 			/>
-			<button onClick={() => {props.enviarComentario()}} >Enviar</button>
+			<button onClick={() => {props.enviarComentario(inputComentario)}} >Enviar</button>
 
 		</CommentContainer>
 	)
