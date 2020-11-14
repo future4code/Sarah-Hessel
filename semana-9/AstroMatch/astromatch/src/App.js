@@ -1,10 +1,14 @@
-import logo from './logo.svg';
-import Home from './components/Home/Home'
-import './App.css';
+import React from 'react';
+import Main from '././components/Main/Main';
+import ResetButton from './components/ResetButton/ResetButton'
 
 function App() {
+
   return (
-  <Home/>
+    <div>
+      <ResetButton/>
+      <Main />
+    </div>
   );
 }
 
