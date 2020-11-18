@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function TripDetailsPage() {
+export function TripDetailsPage() {
   return (
     <div>TripDetailsPage</div>
   );
