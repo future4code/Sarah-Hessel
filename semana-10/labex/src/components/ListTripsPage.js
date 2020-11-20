@@ -13,7 +13,6 @@ export function ListTripsPage() {
   return (
     <div>
       <button onClick={goToApplicationFormPage}>Me candidatar</button>
-      <TripDetailsPage/>
     </div>
   );
 }

@@ -1,20 +1,36 @@
-import { React } from 'react';
-import { useForm } from './useForm'
+import { React, useState} from 'react';
+import { useForm } from './useForm';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios'
 
-export function LoginPage() {
+export function LoginPage() { 
+  const history = useHistory();
   const [form, onChange] = useForm({ 
     email: "", 
     password: "" })
 
-  console.log("Form", form)
-
   const onSubmitForm = (event) => {
-    event.preventDefault(); //Evita atualização da página
+    event.preventDefault(); // evita atualização da página
 
     const body = {
       email: form.email,
       password: form.password
     }
+  }
+  const login = () => {
+    const body = {
+      email: form.email,
+      password: form.password
+    }
+    axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/sarah-dumont/login", body)
+    
+    .then((res) => {
+      localStorage.setItem("token", res.data.token)
+      history.push('/trips/details')
+    })
+    .catch((error) => {
+      console.log(error)
+    })
   }
   return (
     <div>
@@ -35,7 +51,7 @@ export function LoginPage() {
           name={"password"}
           required 
         />
-        <button>Login</button>
+        <button onClick={login}>Login</button>
       </form>
     </div>
   );
