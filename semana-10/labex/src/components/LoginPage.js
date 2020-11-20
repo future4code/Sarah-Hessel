@@ -17,6 +17,7 @@ export function LoginPage() {
       password: form.password
     }
   }
+  
   const login = () => {
     const body = {
       email: form.email,
@@ -32,6 +33,7 @@ export function LoginPage() {
       console.log(error)
     })
   }
+
   return (
     <div>
       <p>LabeX Confidencial</p>
