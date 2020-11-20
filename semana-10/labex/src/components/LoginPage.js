@@ -26,7 +26,7 @@ export function LoginPage() {
     axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/sarah-dumont/login", body)
     
     .then((res) => {
-      localStorage.setItem("token", res.data.token)
+      localStorage.setItem("token", res.data.token) 
       history.push('/trips/details')
     })
     .catch((error) => {
