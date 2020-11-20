@@ -1,17 +1,13 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 
+const Container = styled.div`
+border: 1px solid black;
+`
 export function TripDetailsPage() {
-  const history = useHistory();
-
-  const goToApplicationFormPage = () => {
-    history.push("/application-form")
-  } 
+  
   return (
-    <div>
-    <p>TripDetailsPage</p>
-    <button onClick={goToApplicationFormPage}>Me candidatar</button>
-    </div>
-    
+    <div>Sou o tripDetailsPage</div>
+
   );
 }
