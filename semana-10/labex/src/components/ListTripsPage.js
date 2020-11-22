@@ -1,9 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
-import { useRequestData } from './useRequestData';
+import { Typography } from '@material-ui/core';
+import {Button} from '@material-ui/core'
+import { useRequestData } from '../hooks/useRequestData';
 import {TripContainer} from './TripContainer'
+import imgBackground from '../assets/background-space.jpg'
 
+const Page = styled.div`
+  background-image: url(${imgBackground});
+  background-size: cover;
+  height: 860px;
+  color: white;
+`
+const Container = styled.div`
+ display: grid;
+ grid-template-columns: repeat(4, 24%);
+ gap: 3px;
+`
 
 export function ListTripsPage() {
   const history = useHistory();
@@ -15,11 +29,14 @@ export function ListTripsPage() {
   const data = useRequestData('https://us-central1-labenu-apis.cloudfunctions.net/labeX/sarah-dumont/trips', undefined)
  
   return (
-    <div>
-      {data && data.trips.map((item, i) => {
-        return <TripContainer id={i} name={item.name} durationInDays={item.durationInDays} planet={item.planet} date={item.date} description={item.description}/>
-      })}
-      <button onClick={goToApplicationFormPage}>Me candidatar</button>
-    </div>
+    <Page>
+      <Typography variant='h4' align={'center'}>Viagens Disponiveis</Typography>
+      <Container>
+        {data && data.trips.map((item, i) => {
+          return <TripContainer id={i} name={item.name} durationInDays={item.durationInDays} planet={item.planet} date={item.date} description={item.description}/>
+        })}
+      </Container>
+      <Button variant={"contained"} color={'black'} onClick={goToApplicationFormPage}>Me candidatar</Button>
+    </Page>
   );
 }

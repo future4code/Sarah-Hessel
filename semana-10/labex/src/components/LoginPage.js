@@ -1,7 +1,24 @@
-import { React, useState} from 'react';
-import { useForm } from './useForm';
+import { React } from 'react';
+import { useForm } from '../hooks/useForm';
 import { useHistory } from 'react-router-dom';
+import {TextField, Button, Typography} from '@material-ui/core'
+import styled from 'styled-components'
+import imgBackground from '../assets/background-space.jpg'
 import axios from 'axios'
+
+const LoginForm = styled.form`
+  display: grid;
+  margin-left: 640px;
+  margin-right: 640px;
+  background-color: white;
+  gap: 10px;
+`
+const Page = styled.div`
+  background-image: url(${imgBackground});
+  background-size: cover;
+  height: 810px;
+  color: black;
+`
 
 export function LoginPage() { 
   const history = useHistory();
@@ -18,7 +35,7 @@ export function LoginPage() {
     }
   }
   
-  const login = () => {
+  const logIn = () => {
     const body = {
       email: form.email,
       password: form.password
@@ -35,26 +52,30 @@ export function LoginPage() {
   }
 
   return (
-    <div>
-      <p>LabeX Confidencial</p>
+    <Page>
+      <Typography variant='h5' align={'center'} gutterBottom>Área Restrita</Typography>
       
-      <form onSubmit={onSubmitForm}>
-        <input placeholder="ID"
+      <LoginForm onSubmit={onSubmitForm}>
+        <TextField 
+          label={'ID'}
+          variant="outlined"
           value={form.email}
           type={"email"}
           onChange={onChange}
           name={"email"}
           required 
         />
-        <input placeholder="Senha"
+        <TextField 
+          label={'Senha'}
+          variant="outlined"
           value={form.password}
           type={"password"}
           onChange={onChange}
           name={"password"}
           required 
         />
-        <button onClick={login}>Login</button>
-      </form>
-    </div>
+        <Button variant={'contained'} color={"black"}onClick={logIn}>Login</Button>
+      </LoginForm>
+    </Page>
   );
 }
