@@ -10,7 +10,8 @@ import imgBackground from '../assets/background-space.jpg'
 const Page = styled.div`
   background-image: url(${imgBackground});
   background-size: cover;
-  height: 860px;
+  padding: 15px;
+  height: 830px;
   color: white;
 `
 const Container = styled.div`
@@ -30,13 +31,13 @@ export function ListTripsPage() {
  
   return (
     <Page>
-      <Typography variant='h4' align={'center'}>Viagens Disponiveis</Typography>
+      <Typography variant='h4' align={'center'}>Viagens Disponíveis</Typography>
       <Container>
         {data && data.trips.map((item, i) => {
           return <TripContainer id={i} name={item.name} durationInDays={item.durationInDays} planet={item.planet} date={item.date} description={item.description}/>
         })}
       </Container>
-      <Button variant={"contained"} color={'black'} onClick={goToApplicationFormPage}>Me candidatar</Button>
+      <Button variant={"contained"} color={'primary'} onClick={goToApplicationFormPage}>Me candidatar</Button>
     </Page>
   );
 }

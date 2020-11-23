@@ -11,7 +11,7 @@ export function Footer() {
  
   return (
     <FooterEstilizado>
-      <Typography variant='p' align={'center'} >Criado por Sarah Hessel</Typography>
+      <Typography variant='h6' align={'center'} >Criado por Sarah Hessel</Typography>
     </FooterEstilizado>
   );
 }

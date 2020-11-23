@@ -11,13 +11,15 @@ const LoginForm = styled.form`
   margin-left: 640px;
   margin-right: 640px;
   background-color: white;
+  border-radius: 10px;
   gap: 10px;
 `
 const Page = styled.div`
   background-image: url(${imgBackground});
   background-size: cover;
+  padding-top: 50px;
   height: 810px;
-  color: black;
+  color: white;
 `
 
 export function LoginPage() { 
@@ -43,17 +45,17 @@ export function LoginPage() {
     axios.post("https://us-central1-labenu-apis.cloudfunctions.net/labeX/sarah-dumont/login", body)
     
     .then((res) => {
-      localStorage.setItem("token", res.data.token) 
+      window.localStorage.setItem("token", res.data.token)   
       history.push('/trips/details')
     })
     .catch((error) => {
-      console.log(error)
+      window.alert(" ID ou senha incorretos. Será que temos um invasor por aqui?")
     })
   }
 
   return (
     <Page>
-      <Typography variant='h5' align={'center'} gutterBottom>Área Restrita</Typography>
+      <Typography variant='h4' align={'center'} gutterBottom>Área Restrita</Typography>
       
       <LoginForm onSubmit={onSubmitForm}>
         <TextField 
@@ -74,7 +76,7 @@ export function LoginPage() {
           name={"password"}
           required 
         />
-        <Button variant={'contained'} color={"black"}onClick={logIn}>Login</Button>
+        <Button variant={'contained'} color={"primary"}onClick={logIn}>Login</Button>
       </LoginForm>
     </Page>
   );

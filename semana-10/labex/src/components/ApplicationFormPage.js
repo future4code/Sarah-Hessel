@@ -1,46 +1,67 @@
 import styled from 'styled-components'
 import {useForm} from '../hooks/useForm';
-import {Button} from '@material-ui/core'
-import {TextField} from '@material-ui/core'
-import NativeSelect from '@material-ui/core/NativeSelect';
+import {Button, TextField, Typography, FormControl, InputLabel, Select, MenuItem} from '@material-ui/core'
 import imgBackground from '../assets/background-space.jpg'
+import axios from 'axios';
+import { useTripsList } from '../hooks/useTripsList';
 
 const InputsForm = styled.form`
-  display: grid;
   background-color: white;
+  border-radius: 10px;
+  display: grid;
   margin-left: 500px;
   margin-right: 500px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
   gap: 15px;
-  
 `
 const Page = styled.div`
   background-image: url(${imgBackground});
   background-size: cover;
+  padding-top: 30px;
   height: 810px;
   color: white;
 `
 
 export function ApplicationFormPage() {
-
+ const trips = useTripsList()
   const [form, onChange] = useForm({
     name: "", 
     age: 0, 
-    textApp: "", 
+    appText: "", 
     profession: "", 
     country: "", 
-    tripId: "" })
+    trip: null 
+  })
 
     console.log("Form", form)
     
     const onSubmitForm = (event) => {
       event.preventDefault();  // Evita atualização da página
+      console.log(form)
+      const body = {
+        name: form.name,
+        age: form.age,
+        applicationText: form.applicationText,
+        profession: form.profession,
+        country: form.country
+      }
+      axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/sarah-dumont/trips/${form.trip.id}/apply` , body)
+      .then((response) => {
+        window.alert("Formulario enviado com sucesso! Aguarde nosso retorno pelo email :)")
+      })
+      .catch((error) =>{
+        window.alert("Nosso satelite não conseguiu interceptar seu formulário, tente novamente mais tarde.")
+      })
     }
 
   return (
    <Page>
+     <Typography variant='h4' align={'center'} gutterBottom>Formulário de viajante espacial</Typography>
      <InputsForm onSubmit={onSubmitForm}>
       <TextField 
-      placeholder="Seu nome"
+      label={"Nome completo do candidato"}
       type="text"
       name="name"
       pattern="[A-Za-z]{3,}"
@@ -49,8 +70,9 @@ export function ApplicationFormPage() {
       onChange={onChange}
       value={form.name}
       />
+
       <TextField 
-      placeholder="Idade"
+      label={"Idade"}
       type="number"
       name="age"
       min='18'
@@ -58,18 +80,20 @@ export function ApplicationFormPage() {
       onChange={onChange}
       value={form.age}
       />
+
       <TextField 
-      placeholder="Eu sou um bom candidate porque..."
-      type="text"
-      name="textApp"
+      label={"Texto de aplicação"} helperText="Explique por que você é um bom cadidato "
+      type="InputLabeltext"
+      name="appText"
       pattern="[A-Za-z]{30,}"
       title="No minimo 30 caracteres"
       variant="outlined"
       onChange={onChange}
-      value={form.textApp}
+      value={form.appText}
       />
+
       <TextField 
-      placeholder="Profissão"
+      label={"Profissão"}
       type="text"
       name="profession"
       pattern="[A-Za-z]{10,}"
@@ -78,25 +102,36 @@ export function ApplicationFormPage() {
       onChange={onChange}
       value={form.profession}
       />
-      <NativeSelect 
-      placeholder="Nacionalidade"
-      name="country"
-      onChange={onChange}
-      value={form.country}
-      >
-        <option value=""></option>
-        <option value="brasil">Brasil</option>
-        <option value="argentina">Argentina</option>
-        <option value="uruguai">Uruguai</option>
-      </NativeSelect>
 
-      <TextField 
-      placeholder="Viagens"
-      variant="outlined"
-      name="trip"
-      />
+      <FormControl>
+      <InputLabel id="select-paises">Países</InputLabel>
+      <Select
+          labelId="select-paises"
+          onChange={onChange}
+          value={form.country}
+          name={'country'}
+        >
+          <MenuItem value={'brasil'}>Brasil</MenuItem>
+          <MenuItem value={'argentina'}>Argentina</MenuItem>
+          <MenuItem value={'eua'}>Estados Unidos</MenuItem>
+        </Select>
+      </FormControl>
+
+      <FormControl>
+      <InputLabel id="select-viagens">Viagens</InputLabel>
+      <Select
+          labelId="select-viagens"
+          onChange={onChange}
+          value={form.trip}
+          name={'trip'}
+        >
+          {trips.map((trip) => {
+          return <MenuItem value={trip}>{trip.name}</MenuItem>
+        })}
+        </Select>
+      </FormControl>
+      <Button variant={"contained"} color={'primary'} type={'submit'}>Inscrever-se</Button>
      </InputsForm>
-     <Button variant={"contained"} color={'black'} >Inscrever-se</Button>
    </Page>
   );
 }
