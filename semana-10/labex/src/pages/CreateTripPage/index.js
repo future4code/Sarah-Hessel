@@ -1,27 +1,12 @@
-import React, { useState } from 'react'
-import { TextField, Button } from '@material-ui/core'
-import { useForm } from '../hooks/useForm';
+import React from 'react'
 import axios from 'axios'
+import { TextField, Button } from '@material-ui/core'
+import { useForm } from '../../hooks/useForm';
 import { useHistory } from 'react-router-dom';
-import imgBackground from '../assets/background-space.jpg'
 import Typography from '@material-ui/core/Typography';
-import { useProtectedPage } from '../hooks/useProtectedPage';
-import styled from "styled-components";
+import { useProtectedPage } from '../../hooks/useProtectedPage';
+import {FormContainer, Page} from './styles'
 
- const FormContainer = styled.form`
-  background-color: white;
-  border-radius: 10px;
-  display: grid;
-  gap: 16px;
-  margin-left: 400px;
-  margin-right: 400px;
-`
-const Page = styled.form`
-  color: white;
-  background-image: url(${imgBackground});
-  padding-bottom: 400px;
-  padding-top: 50px;
-`
 
 export const CreateTripPage = () => {
   const history = useHistory()

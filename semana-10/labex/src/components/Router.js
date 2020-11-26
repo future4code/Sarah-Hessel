@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { ApplicationFormPage } from './ApplicationFormPage';
-import { CreateTripPage } from './CreateTripPage';
-import { ListTripsPage } from './ListTripsPage';
-import { TripDetailsPage } from './TripDetailsPage';
-import { HomePage } from './HomePage';
-import { LoginPage } from './LoginPage';
+import { ApplicationFormPage } from '../pages/ApplicationFormPage/index' ;
+import { CreateTripPage } from '../pages/CreateTripPage/index';
+import { ListTripsPage } from '../pages/ListTripsPage/index';
+import { TripDetailsPage } from '../pages/TripDetailsPage/index';
+import { HomePage } from '../pages/HomePage/index';
+import { LoginPage } from '../pages/LoginPage/index';
 
 export function Router() {
   return (

@@ -1,23 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
-import styled from 'styled-components'
-import { useProtectedPage } from '../hooks/useProtectedPage'
+import { useProtectedPage } from '../../hooks/useProtectedPage'
 import { Button, List, ListItem, ListItemText, Link } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography';
-import imgBackground from '../assets/background-space.jpg'
-import {useTripsList} from '../hooks/useTripsList'
+import {useTripsList} from '../../hooks/useTripsList'
+import {Page, Container} from './styles'
 
-const Page = styled.div`
-  background-image: url(${imgBackground});
-  background-size: cover;
-  height: 810px;
-`
-
-const Container = styled.div`
-  background-color: white;
-  margin-left: 100px;
-  margin-right: 100px;
-`
 export function TripDetailsPage() {
   const trips = useTripsList()
   const [trip, setTrip] = useState({})

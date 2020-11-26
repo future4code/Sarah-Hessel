@@ -3,22 +3,9 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 import {Button} from '@material-ui/core'
-import { useRequestData } from '../hooks/useRequestData';
-import {TripContainer} from './TripContainer'
-import imgBackground from '../assets/background-space.jpg'
-
-const Page = styled.div`
-  background-image: url(${imgBackground});
-  background-size: cover;
-  padding: 15px;
-  height: 830px;
-  color: white;
-`
-const Container = styled.div`
- display: grid;
- grid-template-columns: repeat(4, 24%);
- gap: 3px;
-`
+import { useRequestData } from '../../hooks/useRequestData';
+import {TripContainer} from '../../components/TripContainer'
+import {Page, Container} from './styles'
 
 export function ListTripsPage() {
   const history = useHistory();

@@ -1,22 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import styled from 'styled-components'
-import imgBackground from '../assets/background.jpg'
 import {Button} from '@material-ui/core'
-
-
-const Home = styled.div`
-  background-image: url(${imgBackground});
-  background-size: cover;
-  height: 810px;
-`
-const ContainerDiv = styled.div`
-  margin-top: 150px;
-  font-size: 14px;
-`
-const Text = styled.h2`
- color: white;
-`
+import {Home, ContainerDiv, Text} from './styles'
 
 export function HomePage() {
   const history = useHistory();

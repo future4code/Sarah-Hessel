@@ -1,26 +1,8 @@
-import { React } from 'react';
-import { useForm } from '../hooks/useForm';
+import axios from 'axios'
+import { useForm } from '../../hooks/useForm';
 import { useHistory } from 'react-router-dom';
 import {TextField, Button, Typography} from '@material-ui/core'
-import styled from 'styled-components'
-import imgBackground from '../assets/background-space.jpg'
-import axios from 'axios'
-
-const LoginForm = styled.form`
-  display: grid;
-  margin-left: 640px;
-  margin-right: 640px;
-  background-color: white;
-  border-radius: 10px;
-  gap: 10px;
-`
-const Page = styled.div`
-  background-image: url(${imgBackground});
-  background-size: cover;
-  padding-top: 50px;
-  height: 810px;
-  color: white;
-`
+import {LoginForm, Page} from './styles'
 
 export function LoginPage() { 
   const history = useHistory();

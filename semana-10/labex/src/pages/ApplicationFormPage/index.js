@@ -1,28 +1,9 @@
-import styled from 'styled-components'
-import {useForm} from '../hooks/useForm';
-import {Button, TextField, Typography, FormControl, InputLabel, Select, MenuItem} from '@material-ui/core'
-import imgBackground from '../assets/background-space.jpg'
 import axios from 'axios';
-import { useTripsList } from '../hooks/useTripsList';
+import {useForm} from '../../hooks/useForm';
+import {Button, TextField, Typography, FormControl, InputLabel, Select, MenuItem} from '@material-ui/core'
+import {InputsForm, Page} from './styles';
+import { useTripsList } from '../../hooks/useTripsList';
 
-const InputsForm = styled.form`
-  background-color: white;
-  border-radius: 10px;
-  display: grid;
-  margin-left: 500px;
-  margin-right: 500px;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  padding-bottom: 10px;
-  gap: 15px;
-`
-const Page = styled.div`
-  background-image: url(${imgBackground});
-  background-size: cover;
-  padding-top: 30px;
-  height: 810px;
-  color: white;
-`
 
 export function ApplicationFormPage() {
  const trips = useTripsList()
