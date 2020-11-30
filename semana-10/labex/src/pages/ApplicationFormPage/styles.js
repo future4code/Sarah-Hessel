@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import imgBackground from '../../assets/background-space.jpg'
 
-export const InputsForm = styled.form`
+export const FormContainer = styled.form`
 background-color: white;
 border-radius: 10px;
 display: grid;

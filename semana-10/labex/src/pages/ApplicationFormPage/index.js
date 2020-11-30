@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {useForm} from '../../hooks/useForm';
 import {Button, TextField, Typography, FormControl, InputLabel, Select, MenuItem} from '@material-ui/core'
-import {InputsForm, Page} from './styles';
+import {FormContainer, Page} from './styles';
 import { useTripsList } from '../../hooks/useTripsList';
 
 
@@ -15,12 +15,9 @@ export function ApplicationFormPage() {
     country: "", 
     trip: null 
   })
-
-    console.log("Form", form)
     
     const onSubmitForm = (event) => {
       event.preventDefault();  // Evita atualização da página
-      console.log(form)
       const body = {
         name: form.name,
         age: form.age,
@@ -28,19 +25,20 @@ export function ApplicationFormPage() {
         profession: form.profession,
         country: form.country
       }
-      axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/sarah-dumont/trips/${form.trip.id}/apply` , body)
-      .then((response) => {
-        window.alert("Formulario enviado com sucesso! Aguarde nosso retorno pelo email :)")
-      })
-      .catch((error) =>{
-        window.alert("Nosso satelite não conseguiu interceptar seu formulário, tente novamente mais tarde.")
-      })
+      axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labeX/sarah-dumont/trips/${form.trip.id}/apply`, body)
+      
+      // .then((response) => {
+      //   window.alert("Formulario enviado com sucesso! Aguarde nosso retorno pelo email :)")
+      // })
+      // .catch((error) =>{
+      //   window.alert("Nosso satelite não conseguiu interceptar seu formulário, tente novamente mais tarde.")
+      // })
     }
 
   return (
    <Page>
      <Typography variant='h4' align={'center'} gutterBottom>Formulário de viajante espacial</Typography>
-     <InputsForm onSubmit={onSubmitForm}>
+     <FormContainer onSubmit={onSubmitForm}>
       <TextField 
       label={"Nome completo do candidato"}
       type="text"
@@ -107,12 +105,12 @@ export function ApplicationFormPage() {
           name={'trip'}
         >
           {trips.map((trip) => {
-          return <MenuItem value={trip}>{trip.name}</MenuItem>
+          return <MenuItem key={trip} value={trip}>{trip.name}</MenuItem>
         })}
         </Select>
       </FormControl>
       <Button variant={"contained"} color={'primary'} type={'submit'}>Inscrever-se</Button>
-     </InputsForm>
+     </FormContainer>
    </Page>
   );
 }

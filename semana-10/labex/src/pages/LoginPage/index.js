@@ -12,11 +12,6 @@ export function LoginPage() {
 
   const onSubmitForm = (event) => {
     event.preventDefault(); // evita atualização da página
-
-    const body = {
-      email: form.email,
-      password: form.password
-    }
   }
   
   const logIn = () => {
@@ -28,7 +23,7 @@ export function LoginPage() {
     
     .then((res) => {
       window.localStorage.setItem("token", res.data.token)   
-      history.push('/trips/details')
+      history.push('/trips')
     })
     .catch((error) => {
       window.alert(" ID ou senha incorretos. Será que temos um invasor por aqui?")
