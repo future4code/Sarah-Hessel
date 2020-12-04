@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useEffect} from 'react';
 import { useHistory } from 'react-router-dom'
 import { TextField, Button, Typography, Avatar } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
@@ -9,8 +9,8 @@ import { Form, LoginPageContainer } from './styles'
 import styled from 'styled-components'
 import { createMuiTheme } from '@material-ui/core/styles';
 import {orange, red} from '@material-ui/core/colors';
-import Header from '../../components/Header/index'
-
+import Header from '../../components/header/index'
+import {useProtectPage} from '../../hooks/useProtectPage'
 
 const theme = createMuiTheme({
     palette: {
@@ -30,6 +30,11 @@ function LoginPage() {
     const history = useHistory();
     const { form, onChange } = useForm({ email: '', password: '' })
 
+    useEffect(() => {
+       const authentication = useProtectPage   // autenticação
+    }, [useProtectPage])
+
+
     const handleInputChange = (event) => {
         const { value, name } = event.target
         onChange(value, name)
@@ -39,7 +44,7 @@ function LoginPage() {
         event.preventDefault()     // previne o comportamento padrão do form de recarregar a pagina
         user(form, "/login", history)
         /* 
-        login (form) mesma coisa que:
+        (form) mesma coisa que:
          const body = {
             email: form.email,
             password: form.password
@@ -48,7 +53,7 @@ function LoginPage() {
     }
     return (
         <div>
-             <Header title={'login'} />
+             <Header />
         <LoginPageContainer>
             <AvatarContainer >
                 <LockOutlinedIcon />
@@ -77,7 +82,7 @@ function LoginPage() {
                     Entrar
                 </Button>
             </Form>
-            <Button color="secondary" variant="outlined" onClick={() => goToSignUp(history)} > Não é cadastrado? Faça aqui </Button>
+            <Button color="secondary" variant="outlined" onClick={() => goToSignUp(history)} > Não é cadastrado? Crie sua conta </Button>
         </LoginPageContainer>
         </div>
     )

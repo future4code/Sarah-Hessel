@@ -8,6 +8,6 @@ export const user = (body, id, history) => {
         localStorage.setItem('token', response.data.token)  // local para guardar o token
         goToFeedPage(history)
     }).catch(error => {
-        console.log(error.message)
+       console.error(error)
     })
 }
