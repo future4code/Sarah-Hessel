@@ -1,43 +1,62 @@
 import React from 'react'
-import Like from '../../assets/like.png'
-import Dislike from '../../assets/dislike.png'
+import {useHistory} from 'react-router'
 import { CardStyled, ReactionsContainer, VotesContainer } from '../postCardItem/styles'
-import {Link} from 'react-router-dom'
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import { CardContent, Typography, CardHeader, Avatar, Button } from '@material-ui/core/';
+import IconButton from '@material-ui/core/IconButton';
+import ShareIcon from '@material-ui/icons/Share';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { ArrowDownward, ArrowUpward } from '@material-ui/icons'
+import CommentIcon from '@material-ui/icons/Comment';
 
 function PostCard(props) {
-
+    const history = useHistory()
+    const goToPostPage = (history) => {
+        history.push(`post/${props.id}`)
+    }
     return (
-       
-        <CardStyled >
-             <Link to='/post'>
-            <CardActionArea>
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                       {props.username}
-                    </Typography>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {props.title}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {props.text}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-            </Link>
-            <ReactionsContainer>
+        <CardStyled>
+            <CardHeader
+                avatar={
+                    <Avatar>
+                        {props.username}
+                    </Avatar>
+                }
+                action={
+                    <IconButton>
+                        <MoreVertIcon />
+                    </IconButton>
+                }
+                title={props.title}
+                subheader={props.username}
+            />
+            <CardContent>
+                <Typography variant="body2" color="textSecondary" component="p">
+                    {props.text}
+                </Typography>
+            </CardContent>
+            <ReactionsContainer disableSpacing>
                 <VotesContainer>
-                    <img src={Like} alt="icon like" width="20" />
-                    <div>{props.votesCount}</div>
-                    <img src={Dislike} alt="icon dislike" width="20" />
+                    <IconButton>
+                        <ArrowDownward />
+                    </IconButton>
+                    <p>{props.votesCount}</p>
+                    <IconButton>
+                        <ArrowUpward />
+                    </IconButton>
                 </VotesContainer>
-                <div>{props.commentsCount}</div>
-                <div>comentários</div>
+                <IconButton>
+                    <ShareIcon />
+                </IconButton>
+                <Button
+                    variant="contained"
+                    color="secondary"
+                    startIcon={<CommentIcon />}
+                    onClick={goToPostPage}
+                >
+                    {props.commentsCount}
+                </Button>
             </ReactionsContainer>
         </CardStyled>
-        
     )
 }
 export default PostCard;
