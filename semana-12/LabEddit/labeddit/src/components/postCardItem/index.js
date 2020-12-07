@@ -1,5 +1,5 @@
 import React from 'react'
-import {useHistory} from 'react-router'
+import { useHistory } from 'react-router'
 import { CardStyled, ReactionsContainer, VotesContainer } from '../postCardItem/styles'
 import { CardContent, Typography, CardHeader, Avatar, Button } from '@material-ui/core/';
 import IconButton from '@material-ui/core/IconButton';
@@ -10,16 +10,22 @@ import CommentIcon from '@material-ui/icons/Comment';
 
 function PostCard(props) {
     const history = useHistory()
-    const goToPostPage = (history) => {
-        history.push(`post/${props.id}`)
+
+    const goToPostPage = () => {
+        history.push(`/post/${props.id}`)
+    }
+
+    const handleVoteUpVote = (direction) => {
+        props.handleVotePost(props.id, 1)
+    }
+    const handleVoteDownVote = (direction) => {
+        props.handleVotePost(props.id, -1)
     }
     return (
         <CardStyled>
             <CardHeader
                 avatar={
-                    <Avatar>
-                        {props.username}
-                    </Avatar>
+                    <Avatar></Avatar>
                 }
                 action={
                     <IconButton>
@@ -36,11 +42,11 @@ function PostCard(props) {
             </CardContent>
             <ReactionsContainer disableSpacing>
                 <VotesContainer>
-                    <IconButton>
+                    <IconButton onClick={handleVoteDownVote}>
                         <ArrowDownward />
                     </IconButton>
                     <p>{props.votesCount}</p>
-                    <IconButton>
+                    <IconButton onClick={handleVoteUpVote}>
                         <ArrowUpward />
                     </IconButton>
                 </VotesContainer>

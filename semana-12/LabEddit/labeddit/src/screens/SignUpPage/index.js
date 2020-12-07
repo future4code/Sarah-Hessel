@@ -1,11 +1,11 @@
-import React from 'react';
+import {React, useEffect} from 'react';
 import { TextField, Button, Typography} from '@material-ui/core'
 import { Form, SignUpContainer } from './styles'
 import Header from '../../components/header/index' 
 import { useForm } from '../../hooks/useForm'
 import { user } from '../../services/user';
 import { useHistory } from 'react-router-dom';
-
+import { useProtectPage } from '../../hooks/useProtectPage'
 
 
 function SignUpPage() {

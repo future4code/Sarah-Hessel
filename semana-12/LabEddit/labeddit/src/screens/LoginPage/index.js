@@ -27,13 +27,9 @@ export const AvatarContainer = styled(Avatar)`
 `
 
 function LoginPage() {
+    useProtectPage()
     const history = useHistory();
     const { form, onChange } = useForm({ email: '', password: '' })
-
-    useEffect(() => {
-       const authentication = useProtectPage   // autenticação
-    }, [useProtectPage])
-
 
     const handleInputChange = (event) => {
         const { value, name } = event.target

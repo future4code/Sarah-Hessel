@@ -10,12 +10,17 @@ import { BASE_URL } from '../../constants/url_api'
 function FeedPage() {
     const [isLoading, setLoading] = useState(false)
     const [posts, setPost] = useState(undefined)
+    
 
     useEffect(() => {
         const authentication = useProtectPage   // autenticação
     }, [useProtectPage])
 
     useEffect(() => {
+        fetchPost();
+    }, [])
+
+    const fetchPost = () => {
         const token = localStorage.getItem('token')
         setLoading(true)
         axios.get(`${BASE_URL}/posts`, {
@@ -28,7 +33,27 @@ function FeedPage() {
         }).catch((error) => {
             console.log(error)
         })
-    }, [])
+    }
+    const handleVotePost = async (postId, direction) => {
+        const axiosConfig = {
+            headers: {
+                Authorization: localStorage.getItem("token")
+            }
+        }
+
+        const body = {
+            direction: direction
+        }
+        try{
+           await axios.put(`${BASE_URL}/posts/${postId}/vote`, body, axiosConfig) 
+           fetchPost();
+        }catch(error){
+            alert("Não foi possivel votar no post, tente novamente")
+            console.error(error)
+        }
+        
+    }
+   
 
     return (
         <div>
@@ -40,6 +65,7 @@ function FeedPage() {
                         type="text"
                         placeholder="Escreva aqui"
                     />
+                    
                     <ButtonContainer>
                         <Button
                             type="submit"
@@ -56,10 +82,12 @@ function FeedPage() {
                         <PostCard
                             key={post.post_id}
                             title={post.title}
+                            id={post.id}
                             username={post.username}
                             text={post.text}
                             votesCount={post.votesCount}
                             commentsCount={post.commentsCount}
+                            handleVotePost={handleVotePost}
                         />
                     )
                 })}
