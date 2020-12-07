@@ -6,11 +6,13 @@ import { Typography, TextField, Button, Card } from '@material-ui/core'
 import { FeedContainer, ButtonContainer } from './styles'
 import { useProtectPage } from '../../hooks/useProtectPage'
 import { BASE_URL } from '../../constants/url_api'
+import { useForm } from '../../hooks/useForm'
 
 function FeedPage() {
     const [isLoading, setLoading] = useState(false)
     const [posts, setPost] = useState(undefined)
-    
+    const [title, setTitle] = useState('')
+    const [text, setText] = useState('')
 
     useEffect(() => {
         const authentication = useProtectPage   // autenticação
@@ -44,16 +46,43 @@ function FeedPage() {
         const body = {
             direction: direction
         }
-        try{
-           await axios.put(`${BASE_URL}/posts/${postId}/vote`, body, axiosConfig) 
-           fetchPost();
-        }catch(error){
+        try {
+            await axios.put(`${BASE_URL}/posts/${postId}/vote`, body, axiosConfig)
+            fetchPost();
+            setTitle('')
+            setText('')
+        } catch (error) {
             alert("Não foi possivel votar no post, tente novamente")
             console.error(error)
         }
-        
+
     }
-   
+
+    const createPost = async () => {
+        const axiosConfig = {
+            headers: {
+                Authorization: localStorage.getItem("token")
+            }
+        }
+        const body = {
+            text: text,
+            title: title
+        }
+        try {
+            setLoading(true)
+            await axios.post(`${BASE_URL}/posts`, body, axiosConfig)
+            fetchPost();
+        } catch (error) {
+            alert("Não foi possivel criar o post")
+            console.error(error)
+        }
+    }
+    const handleOnChangeText = (event) => {
+        setText(event.target.value)
+    }
+    const handleOnChangeTitle = (event) => {
+        setTitle(event.target.value)
+    }
 
     return (
         <div>
@@ -63,14 +92,22 @@ function FeedPage() {
                 <Card>
                     <TextField
                         type="text"
-                        placeholder="Escreva aqui"
+                        placeholder="Titulo"
+                        value={title}
+                        onChange={handleOnChangeTitle}
                     />
-                    
+                    <TextField
+                        type="text"
+                        placeholder="Escreva seu post aqui"
+                        value={text}
+                        onChange={handleOnChangeText}
+                    />
                     <ButtonContainer>
                         <Button
                             type="submit"
                             variant="contained"
                             color="primary"
+                            onClick={createPost}
                         >
                             Postar
                     </Button>
