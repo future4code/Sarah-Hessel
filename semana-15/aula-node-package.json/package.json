@@ -1,15 +1,12 @@
 {
   "name": "aula-node-package.json",
   "version": "1.0.0",
-  "description": "",
+  "description": "Lista de exercicios de backend",
   "main": "node ./index.js",
   "scripts": {
     "start":"node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "exercise1":"clear && node './exercise1.js'",
-    "exercise2": "clear && node './exercise2.js'",
-    "exercise3": "clear && node './exercise3.js'"
   },
-  "author": "",
+  "author": "Sarah",
   "license": "ISC"
 }
