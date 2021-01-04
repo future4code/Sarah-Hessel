@@ -16,3 +16,4 @@ switch(operacao) {
         console.log(a / b)
         break;
 }
+
