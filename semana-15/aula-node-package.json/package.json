@@ -7,7 +7,8 @@
     "start":"node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "exercise1":"clear && node './exercise1.js'",
-    "exercise2": "clear && node './exercise2.js"
+    "exercise2": "clear && node './exercise2.js'",
+    "exercise3": "clear && node './exercise3.js'"
   },
   "author": "",
   "license": "ISC"
