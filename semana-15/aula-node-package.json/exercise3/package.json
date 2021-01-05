@@ -1,0 +1,12 @@
+{
+  "name": "exercise3",
+  "version": "1.0.0",
+  "description": "Lista de exercicios de backend, questão 3.",
+  "main": "exercise3.js",
+  "scripts": {
+    "start":"node ./exercise3.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sarah",
+  "license": "ISC"
+}
