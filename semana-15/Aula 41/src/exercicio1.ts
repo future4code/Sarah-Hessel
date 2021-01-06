@@ -3,11 +3,11 @@
 const minhaString: string = 'Uma frase vermelha qualquer';
 const meuNumero: number = 10
 
-// b) Acho que não tem como...
+// b) através do onion type, por exemplo, let variavel: number | string = "sou uma frase"
 
 
 enum CoresArcoIris {
-    VERMEHO = "Vermelho",
+    VERMELHO = "Vermelho",
     LARANJA = "Laranja",
     AMARELO = "Amarelo",
     VERDE = "Verde",
@@ -22,6 +22,7 @@ type pessoa = {
     corFavorita?: CoresArcoIris
 }
 
+
 const manuela: pessoa = {
     nome: "Manuela",
     idade: 23,
@@ -30,7 +31,7 @@ const manuela: pessoa = {
 const roberta: pessoa = {
     nome: "Roberta",
     idade: 27,
-    corFavorita: CoresArcoIris.VERMEHO
+    corFavorita: CoresArcoIris.VERMELHO
 }
 const samantha: pessoa = {
     nome: "Samantha",
