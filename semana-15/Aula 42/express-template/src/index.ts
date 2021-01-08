@@ -22,7 +22,12 @@ app.get('/countries/:id', (req: Request, res: Response) => {
     const result: country | undefined = countries.find(
     country => country.id === Number(req.params.id)
     )
-    res.status(200).send(result)
+    if(result){
+        res.status(200).send(result)
+    }
+    else{
+        res.status(400).send('Not Found')
+    }
    })
 
 
