@@ -9,7 +9,11 @@ const app: Express = express();
 app.use(express.json());
 app.use(cors());
 
-
+app.put('./countries/edit/:id', (req: Request, res: Response) => {
+    let result: country[] = countries
+    if(req.params.id){
+    }
+})
 app.get('/.countries/search', (req: Request, res: Response) => {
     let result: country[] = countries
     
