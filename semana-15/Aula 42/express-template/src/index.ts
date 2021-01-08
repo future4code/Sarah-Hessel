@@ -10,6 +10,17 @@ app.use(express.json());
 app.use(cors());
 
 
+app.get('/.countries/search', (req: Request, res: Response) => {
+    let result: country[] = countries
+    
+    if(req.query.name){
+        result = result.filter(
+            country => country.name.includes(req.query.name as string)
+        )
+    }
+    res.send(result)
+})
+
 app.get('/countries/all', (req: Request, res: Response) =>{
     const result = countries.map(country =>({
         id: country.id,
@@ -29,7 +40,6 @@ app.get('/countries/:id', (req: Request, res: Response) => {
         res.status(400).send('Not Found')
     }
    })
-
 
 
 import { AddressInfo } from "net"
