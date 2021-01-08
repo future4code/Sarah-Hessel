@@ -2,7 +2,7 @@ import express, {Express, Request, Response} from 'express'
 import cors from 'cors'
 
 // ENDPOINTS IMPORTS
-import {countries} from './countries'
+import {countries, country} from './countries'
 
 const app: Express = express();
 
@@ -18,6 +18,12 @@ app.get('/countries/all', (req: Request, res: Response) =>{
     res.send(result).status(200)
 })
 
+app.get('/countries/:id', (req: Request, res: Response) => {
+    const result: country | undefined = countries.find(
+    country => country.id === Number(req.params.id)
+    )
+    res.status(200).send(result)
+   })
 
 
 
