@@ -5,9 +5,9 @@ export type Transaction = {
 }
 
  export type User = {
-    CPF: string,
     name: string,
-    birthday: Date,
+    CPF: string,
+    birthday?: Date,
     balance?: number,
     statement?: Transaction[]
 }
