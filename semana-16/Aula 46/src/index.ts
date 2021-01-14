@@ -157,4 +157,62 @@ const getActorById = async (id: string): Promise<any> => {
         message: error.message
       })
     }
-  })
+  });
+
+/* Questão 4*/
+
+  const createActor = async(id: string, name: string, salary: number, dateOfBirth: Date, gender: string ): Promise<void> =>{
+    await connection
+    .insert({
+      id: id, 
+      name: name, 
+      salary: salary,
+      birth_date: dateOfBirth,
+      gender: gender
+    })
+    .into("Actor")
+  };
+
+  app.put('/actor/create', async (req: Request, res: Response): Promise<any> => {
+    try{
+      await createActor(
+        req.body.id, 
+        req.body.name,   
+        req.body.salary,  
+        new Date(req.body.dateOfBirth),
+        req.body.gender
+      );
+      res.status(200).send()
+    }
+    catch(error){
+      res.status(400).send({
+        message: error.message
+      })
+    }
+  });
+
+  // a)
+    app.post('/actor', async (req: Request, res: Response):Promise<any> => {
+      try{
+        await updateSalaryById(req.body.id, req.body.salary)
+        res.status(200).send()
+      }
+      catch(error){
+        res.status(400).send({
+          message: error.message
+        })
+      }
+    });
+
+// b)
+    app.post('/actor/:id', async (req: Request, res: Response):Promise<any> => {
+      try{
+        await deleteActorById(req.params.id)
+        res.status(200).send()
+      }
+      catch(error){
+        res.status(400).send({
+          message: error.message
+        })
+      }
+    })
