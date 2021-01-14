@@ -85,6 +85,53 @@ const getActorById = async (id: string): Promise<any> => {
       }
 
 
+/* Questão 2*/
+
+// a) 
+  const updateSalaryById = async(id: string, salary: number): Promise<any> => {
+    try{
+      const result = await connection("Actor")
+        .update({
+          salary: salary
+        })
+        .where("id", id)
+
+    }
+    catch(error){
+      console.log(error.sqlMessage || error.message)
+    }
+  }
+
+// b)
+  const deleteActorById = async(id: string): Promise<void> => {    // não tem retorno ao deletar
+    try{
+      const result = await connection("Actor")
+      .delete()
+      .where({id})
+
+    }
+    catch(error){
+      console.log(error.sqlMessage || error.message)
+    }
+  }
+
+// c) 
+  const avgByGender = async(gender: string): Promise<any> => {
+    try{
+      const result = await connection("Actor")
+        .avg('salary as average')
+        .where({gender})
+
+     return result[0].average
+    }
+    catch(error){
+     console.log(error.sqlMessage || error.message) 
+    }
+  }
+
+/* Questão 3*/
+
+
 app.get('/', testEndpoint)
 
 async function testEndpoint(req:Request, res:Response): Promise<void>{
