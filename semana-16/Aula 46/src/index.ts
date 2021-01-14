@@ -131,17 +131,30 @@ const getActorById = async (id: string): Promise<any> => {
 
 /* Questão 3*/
 
+// a)
+  app.get('/actor/:id', async (req: Request, res: Response): Promise<any> => {
+    try{
+      const id = req.params.id
+      const actor = await getActorById(id)
 
-app.get('/', testEndpoint)
+      res.status(200).send(actor)
+    }
+    catch(error){
+      res.status(400).send({
+        message: error.message
+      })
+    }
+  })
 
-async function testEndpoint(req:Request, res:Response): Promise<void>{
-  try {
-    const result = await connection.raw(`
-      SELECT * FROM Actor
-    `)
-
-    res.status(200).send(result)
-  } catch (error) {
-    res.status(400).send(error.message)
-  }
-}
+// b)
+  app.get('/actor', async (req: Request, res: Response): Promise<any> => {
+    try{
+      const count = await getCountByGender(req.query.gender as string)
+      res.status(200).send({ quantity: count })
+    }
+    catch(error){
+      res.status(400).send({
+        message: error.message
+      })
+    }
+  })
