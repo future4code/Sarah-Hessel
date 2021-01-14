@@ -216,3 +216,35 @@ const getActorById = async (id: string): Promise<any> => {
         })
       }
     })
+
+/* Questão 5*/
+
+const createMovie = async (id: string, name: string, sinopse: string, dataDeLanca: Date, avaliacao: number) => {
+  await connection
+  .insert({
+    id: id, 
+    name: name, 
+    sinopse: sinopse,
+    data_de_lançamento: dataDeLanca,
+    avaliacao: avaliacao
+  })
+  .into("Filme")
+}
+
+app.put('/movie/create', async (req: Request, res: Response) => {
+   try{
+    await createMovie(
+      req.body.id,
+      req.body.name,
+      req.body.sinopse,
+      req.body.dataDeLanca,
+      req.body.avaliacao
+    )
+    res.status(200).send()
+
+   }catch(error){
+    res.status(400).send({
+      message: error.message
+    })
+   }
+})
