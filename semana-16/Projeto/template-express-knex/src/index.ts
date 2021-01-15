@@ -23,7 +23,7 @@ app.use(cors())
 
 // endpoints aqui
 
-app.post('/user/create', async(req: Request, res: Response) => {
+app.post('/user/create', async(req: Request, res: Response) => {   // poderia ser usado PUT tb.
    let errorCode: number = 400
    const {name, nickname, email} = req.body
    try{
