@@ -66,12 +66,18 @@ app.get('/user/:id', async(req: Request, res: Response) => {
    }
 })
 
+// endpoint de editar usuario
+
 app.post('/user/edit/:id', async (req: Request, res: Response) => {
    let errorCode: number = 400
    try{
       const {id} = req.params
       const {name, nickname} = req.body
       const edit = await editUserById(id, name, nickname)
+      if( !name || !nickname){
+         errorCode = 404
+         throw new Error("Preencha todos os campos e tente novamente")
+      }
       res.status(200).send(edit)
    }
    catch(error){
