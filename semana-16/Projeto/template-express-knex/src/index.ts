@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
 import {createUser} from './data/createUser'
+import { getUserById } from "./data/getUserById";
 dotenv.config();
 
 export const connection = knex({
@@ -25,14 +26,35 @@ app.use(cors())
 
 app.post('/user/create', async(req: Request, res: Response) => {   // poderia ser usado PUT tb.
    let errorCode: number = 400
+
    const {name, nickname, email} = req.body
    try{
-      await createUser(
+      const user = await createUser(
          name,
          nickname, 
          email
-      )
+      )    
+
       res.status(200).send()
+   }
+   catch(error){
+      res.status(errorCode).send({
+         message: error.message
+      })
+   }
+})
+
+app.get('/user/:id', async(req: Request, res: Response) => {
+   let errorCode: number = 400
+   try{
+      const {id} = req.params
+      const user = await getUserById(id)
+
+      if(!user){
+         errorCode = 404
+         throw new Error("Id não encontrado!")
+      }
+   res.status(200).send(user)
    }
    catch(error){
       res.status(errorCode).send({
