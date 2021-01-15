@@ -73,12 +73,12 @@ app.post('/user/edit/:id', async (req: Request, res: Response) => {
    try{
       const {id} = req.params
       const {name, nickname} = req.body
-      const edit = await editUserById(id, name, nickname)
+      await editUserById(id, name, nickname)
       if( !name || !nickname){
          errorCode = 404
          throw new Error("Preencha todos os campos e tente novamente")
       }
-      res.status(200).send(edit)
+      res.status(200).send()
    }
    catch(error){
       res.status(errorCode).send({
