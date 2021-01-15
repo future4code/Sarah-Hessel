@@ -3,7 +3,8 @@ import { connection } from ".."
 export const getUserById = async(id: string) =>{
     try{
     const result = await connection.raw(`
-    SELECT id, nickname FROM TodoListUser WHERE id = '${id}'
+    SELECT id, nickname FROM TodoListUser 
+    WHERE id = '${id}'
     `)
         return result[0][0]
     }

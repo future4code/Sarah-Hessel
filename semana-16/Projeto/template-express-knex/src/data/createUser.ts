@@ -15,3 +15,5 @@ export const createUser = async(name: string, nickname: string, email: string): 
         console.log(error.sqlMessage || error.message)
     }
 };
+
+

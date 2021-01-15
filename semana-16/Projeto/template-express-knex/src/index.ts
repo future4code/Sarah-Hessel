@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import { AddressInfo } from "net";
 import {createUser} from './data/createUser'
 import { getUserById } from "./data/getUserById";
+import { editUserById } from "./data/editUserById";
 dotenv.config();
 
 export const connection = knex({
@@ -22,7 +23,7 @@ const app: Express = express();
 app.use(express.json());
 app.use(cors())
 
-// endpoints aqui
+// endpoint de criar usuário
 
 app.post('/user/create', async(req: Request, res: Response) => {   // poderia ser usado PUT tb.
    let errorCode: number = 400
@@ -44,6 +45,8 @@ app.post('/user/create', async(req: Request, res: Response) => {   // poderia se
    }
 })
 
+// endpoint de pegar usuario pelo id
+
 app.get('/user/:id', async(req: Request, res: Response) => {
    let errorCode: number = 400
    try{
@@ -63,6 +66,20 @@ app.get('/user/:id', async(req: Request, res: Response) => {
    }
 })
 
+app.post('/user/edit/:id', async (req: Request, res: Response) => {
+   let errorCode: number = 400
+   try{
+      const {id} = req.params
+      const {name, nickname} = req.body
+      const edit = await editUserById(id, name, nickname)
+      res.status(200).send(edit)
+   }
+   catch(error){
+      res.status(errorCode).send({
+         message: error.message
+      })
+   }
+})
 
 const server = app.listen(process.env.PORT || 3003, () => {
    if (server) {
