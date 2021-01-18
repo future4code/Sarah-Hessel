@@ -4,7 +4,7 @@ export const createUser = async(name: string, nickname: string, email: string): 
     try{
         await connection
     .insert({
-        id: Date.now(),   // forma de gerar um id aleátorio
+        id: Date.now(),   
         name: name,
         nickname: nickname,
         email: email

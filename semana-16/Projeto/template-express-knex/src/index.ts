@@ -24,20 +24,19 @@ const app: Express = express();
 app.use(express.json());
 app.use(cors())
 
-// endpoint de criar usuário
 
-app.post('/user/create', async(req: Request, res: Response) => {   // poderia ser usado PUT tb.
+app.post('/user/create', async(req: Request, res: Response) => {   
    let errorCode: number = 400
 
    const {name, nickname, email} = req.body
    try{
-      const user = await createUser(
+      await createUser(
          name,
          nickname, 
          email
       )    
 
-      res.status(200).send()
+      res.status(200).send("Usuário criado com sucesso!")
    }
    catch(error){
       res.status(errorCode).send({
@@ -46,7 +45,6 @@ app.post('/user/create', async(req: Request, res: Response) => {   // poderia se
    }
 });
 
-// endpoint de pegar usuario pelo id
 
 app.get('/user/:id', async(req: Request, res: Response) => {
    let errorCode: number = 400
@@ -68,7 +66,6 @@ app.get('/user/:id', async(req: Request, res: Response) => {
 });
 
 
-// endpoint de editar usuario
 
 app.post('/user/edit/:id', async (req: Request, res: Response) => {
    let errorCode: number = 400
@@ -89,7 +86,6 @@ app.post('/user/edit/:id', async (req: Request, res: Response) => {
    }
 });
 
-// endpoint de criar tarefas
 
 app.put("/task", async(req: Request, res: Response): Promise<any> => {
    let errorCode: number = 400
