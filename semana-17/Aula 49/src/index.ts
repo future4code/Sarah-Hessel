@@ -20,7 +20,6 @@ export const connection = knex({
        database: process.env.DB_NAME
     }
  })
- 
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {
