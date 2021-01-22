@@ -3,7 +3,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import knex from "knex";
 import { AddressInfo } from "net";
-import createStudent from "./endpoints/createStudent"
+import createStudent from "./endpoints/createStudent";
+import createTeacher from "./endpoints/createTeacher"
+import createMission from "./endpoints/createMission";
 
 const app: Express = express();
 app.use(express.json());
@@ -22,7 +24,12 @@ export const connection = knex({
     }
  })
 
- app.post('/user/create', createStudent)
+ app.post('/user/create/student', createStudent)
+ 
+ app.post('/user/create/teacher', createTeacher)
+ 
+ app.post('/user/create/mission', createMission)
+
 
 const server = app.listen(process.env.PORT || 3003, () => {
     if (server) {

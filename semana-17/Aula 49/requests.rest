@@ -1,0 +1,11 @@
+ POST http://localhost:3003/user/create/mission
+Content-Type: application/json 
+
+{
+    "name": "Turma-do-bairro",
+    "start": "14/10/2020",
+    "end": "05/04/2021",
+    "modulo": "7",
+    "type": "Integral"
+}
+

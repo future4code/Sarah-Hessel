@@ -38,7 +38,7 @@ const createTable = async():Promise<void> => {
         await connection.raw(`
         CREATE TABLE specialty(
             id INT PRIMARY KEY AUTO_INCREMENT,
-            name VARCHAR(67) NOT NULL 
+            name ENUM('REACT') 
         );
         `)
         await connection.raw(`
@@ -55,5 +55,4 @@ const createTable = async():Promise<void> => {
         console.log(e.sqlMessage || e.message)
     }
 }
-createTable();
 
