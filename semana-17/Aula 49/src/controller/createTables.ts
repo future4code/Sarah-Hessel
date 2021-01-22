@@ -51,8 +51,8 @@ const createTable = async():Promise<void> => {
         `)
        console.log("Tabelas criadas com sucesso!")
     }
-    catch(error){
-        console.log(error.sqlMessage || error.message)
+    catch(e){
+        console.log(e.sqlMessage || e.message)
     }
 }
 createTable();
