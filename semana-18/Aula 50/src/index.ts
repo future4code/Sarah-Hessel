@@ -23,7 +23,7 @@ const app = express();
 /* Questão 1
 
 a) Sim, pois com mais opções de caracteres é possivel haver mais variedades de combinações de IDs, diminuindo a possibilidade de gerar conflitos. 
-b) Função generateToken()
+b) Função generateId()
 */
 
  
