@@ -6,6 +6,7 @@ import { AddressInfo } from "net";
 import createStudent from "./endpoints/createStudent";
 import createTeacher from "./endpoints/createTeacher"
 import createMission from "./endpoints/createMission";
+import addStudent from "./endpoints/addStudentInMission"
 
 const app: Express = express();
 app.use(express.json());
@@ -24,11 +25,15 @@ export const connection = knex({
     }
  })
 
- app.post('/user/create/student', createStudent)
+ app.post('/students', createStudent)
  
- app.post('/user/create/teacher', createTeacher)
+ app.patch('students/:studentId/add/:missionId', addStudent)
+
+ app.post('/teacher', createTeacher)
+
+ app.post('/mission', createMission)
+
  
- app.post('/user/create/mission', createMission)
 
 
 const server = app.listen(process.env.PORT || 3003, () => {

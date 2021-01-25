@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "controller": "tsc && node ./build/controller/createTables.js",
-    "specialty": "tsc && node ./build/data/insertSpecialty.js",
+    "addStudent": "tsc && node ./build/data/updateStudent.js",
     "start": "tsc && node ./build/index.js",
     "dev": "ts-node-dev ./src/index.ts"
   },
