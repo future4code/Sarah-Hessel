@@ -2,9 +2,8 @@ import * as jwt from "jsonwebtoken"
 
 export function generateToken(id: string): string{
     const token: string = jwt.sign({id},
-        process.env.JWT_KEY as string,    // como o tipo pode ser undefined tb é importante colocar o AS string ou ! contrario do ? 
-                                         //onde o ? é talvez não venha o ! é com certeza vem 
-        {expiresIn: process.env.JWT_EXPIRED_TIME as string || "1d"}) //  caso o valor esteja nulo
+        process.env.JWT_KEY as string,    
+        {expiresIn: process.env.JWT_EXPIRED_TIME as string || "1d"})
     return token;
 }
 
