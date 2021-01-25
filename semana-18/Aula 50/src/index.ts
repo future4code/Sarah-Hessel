@@ -28,13 +28,17 @@ b) Função generateId()
 
  /* Questão 2
 
-a) Temos uma chamada de função do Knex que está se conectando com o nosso banco de dados, através das informações contidas no .env
+a) Temos uma chamada de função do Knex que está se conectando com o nosso banco de dados, através das informações contidas no .env.
 Também temos uma função query builder, que está inserindo informações no banco de dados, em uma tabela User.
 b) createTable() que está na pasta controller.
 c) createUser() que está na pasta data.
 */
 
+ /* Questão 3
 
+a) AS string em alguma variavel reforça que seu tipo é string e não tem a possibilidade de ser outro tipo.
+b) generateToken() que está no arquivo authenticator na pasta service.
+*/
 
 app.use(express.json());
 
