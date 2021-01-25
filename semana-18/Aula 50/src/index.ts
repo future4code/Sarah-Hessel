@@ -2,12 +2,12 @@ import knex from "knex";
 import dotenv from "dotenv";
 import express from "express";
 import { AddressInfo } from "net";
-import {generate} from  "./generateId/generateId"
+import {generate} from  "./service/generateId/generateId"
 
 
 dotenv.config();
 
-const connection = knex({
+export const connection = knex({
   client: "mysql",
   connection: {
     host: process.env.DB_HOST,
@@ -26,7 +26,13 @@ a) Sim, pois com mais opções de caracteres é possivel haver mais variedades d
 b) Função generateId()
 */
 
- 
+ /* Questão 2
+
+a) Temos uma chamada de função do Knex que está se conectando com o nosso banco de dados, através das informações contidas no .env
+Também temos uma função query builder, que está inserindo informações no banco de dados, em uma tabela User.
+b) createTable() que está na pasta controller.
+c) createUser() que está na pasta data.
+*/
 
 
 
