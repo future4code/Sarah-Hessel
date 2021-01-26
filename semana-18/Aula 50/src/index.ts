@@ -4,6 +4,7 @@ import express, {Express} from "express";
 import { AddressInfo } from "net";
 import { signUp } from "./endpoints/signup";
 import { login } from "./endpoints/login";
+import { getDataByToken } from "./endpoints/getDataByToken";
 
 
 dotenv.config();
@@ -50,11 +51,13 @@ a)
 */
 
 // Cadastrar usuário
-app.post("/api/signup", signUp)
+app.post("/user/signup", signUp)
 
 // Login
-app.post ("/api/login", login)
+app.post ("/user/login", login)
 
+// Login
+app.get ("/user/profile", getDataByToken)
 
 
 app.use(express.json());
