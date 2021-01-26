@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import express, {Express} from "express";
 import { AddressInfo } from "net";
 import { signUp } from "./endpoints/signup";
-import { dataByEmail } from "./endpoints/dataByEmail";
+import { login } from "./endpoints/login";
 
 
 dotenv.config();
@@ -52,8 +52,10 @@ a)
 // Cadastrar usuário
 app.post("/api/signup", signUp)
 
-// Buscar informações do usuário pelo email
-app.get("/api/search", dataByEmail)
+// Login
+app.post ("/api/login", login)
+
+
 
 app.use(express.json());
 

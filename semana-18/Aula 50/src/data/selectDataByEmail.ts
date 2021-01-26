@@ -6,8 +6,6 @@ export const selectData = async (email: string ): Promise<any> => {
         SELECT * FROM User
         WHERE email = "${email}";
         `)
-    
-       
     return result[0][0]
    
     
