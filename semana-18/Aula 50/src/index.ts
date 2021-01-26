@@ -2,8 +2,8 @@ import knex from "knex";
 import dotenv from "dotenv";
 import express, {Express} from "express";
 import { AddressInfo } from "net";
-import {generate} from  "./service/generateId/generateId"
 import { signUp } from "./endpoints/signup";
+import { dataByEmail } from "./endpoints/dataByEmail";
 
 
 dotenv.config();
@@ -49,7 +49,11 @@ b) generateToken() que está no arquivo authenticator na pasta service.
 a) 
 */
 
-app.post("/signup", signUp)
+// Cadastrar usuário
+app.post("/api/signup", signUp)
+
+// Buscar informações do usuário pelo email
+app.get("/api/search", dataByEmail)
 
 app.use(express.json());
 
