@@ -1,8 +1,9 @@
 import knex from "knex";
 import dotenv from "dotenv";
-import express from "express";
+import express, {Express} from "express";
 import { AddressInfo } from "net";
 import {generate} from  "./service/generateId/generateId"
+import { signUp } from "./endpoints/signup";
 
 
 dotenv.config();
@@ -18,7 +19,10 @@ export const connection = knex({
   },
 });
 
-const app = express();
+const app: Express = express();
+app.use(express.json());
+
+
 
 /* Questão 1
 
@@ -39,6 +43,13 @@ c) createUser() que está na pasta data.
 a) AS string em alguma variavel reforça que seu tipo é string e não tem a possibilidade de ser outro tipo.
 b) generateToken() que está no arquivo authenticator na pasta service.
 */
+
+ /* Questão 4
+
+a) 
+*/
+
+app.post("/signup", signUp)
 
 app.use(express.json());
 
