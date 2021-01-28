@@ -1,6 +1,8 @@
 export type address = {
-    street: string,
-    neighborhood: string,
-    city: string,
+    street: string, 
+    number?: string, 
+    complemento?: string, 
+    neighborhood: string, 
+    city: string, 
     state: string
 }

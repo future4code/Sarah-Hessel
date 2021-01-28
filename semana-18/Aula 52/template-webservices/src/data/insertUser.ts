@@ -6,7 +6,7 @@ export default async function insertUser(
     nickname: string,
     email: string,
     password: string,
-    role: USER_ROLES
+    role: USER_ROLES,
 ) {
     await connection.insert({
         id,
@@ -15,7 +15,7 @@ export default async function insertUser(
         email,
         password,
         role
-    }).into('to_do_list_users')
+    }).into('TodoListUser')
 }
 
 export enum USER_ROLES {

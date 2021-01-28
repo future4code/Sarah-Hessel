@@ -3,6 +3,7 @@ import {addressManager} from '../services/addressManager'
 import {address} from "../types/address"
 
 
+
 export const getAddress = async (req: Request, res: Response) => {
     let errorCode: number = 400
     try{
@@ -10,13 +11,13 @@ export const getAddress = async (req: Request, res: Response) => {
             throw new Error("Numeric values only")
         }
         const cep = req.params.cep
+        
+        const infos: address = await addressManager(cep)
 
-        const address: address = await addressManager(cep)
-
-        res.status(200).send(address)
+        res.status(200).send(infos)
     }
     catch(e){
-        res.send(errorCode).send({
+        res.status(errorCode).send({
             message: e.message
         })
     }

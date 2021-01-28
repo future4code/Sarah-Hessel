@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { insertAddress } from '../data/insertAddress';
 import {address} from "../types/address"
 
 const URL = 'https://viacep.com.br/ws'
@@ -13,6 +14,7 @@ export async function addressManager(cep: string): Promise<address>{
             city: result.data.localidade,
             state: result.data.uf,
         }
+        
         return myAddress
     }
     catch(e){
