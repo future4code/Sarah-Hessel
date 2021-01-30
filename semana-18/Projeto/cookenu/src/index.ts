@@ -3,6 +3,7 @@ import knex from 'knex'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import { userCreator } from './endpoints/userCreator'
+import { userLogin } from './endpoints/userLogin'
 
 
 dotenv.config()
@@ -28,6 +29,7 @@ app.get("/", async function(req,res){
 })
 
 app.post("/signup", userCreator)
+app.post("/login", userLogin)
 
 app.listen(3003, () => {
    console.log('Servidor rodando na porta 3003')

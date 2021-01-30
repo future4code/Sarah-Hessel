@@ -8,6 +8,6 @@ export const hash = async (plainText: string): Promise<string> => {
   return result
 }
 
-export const compare = async (plainText: string, cypherText: string): Promise<boolean> => {
-  return bcrypt.compare(plainText, cypherText)
+export const compare = (plainText: string, cypherText: string): boolean => {
+  return bcrypt.compareSync(plainText, cypherText)
 }

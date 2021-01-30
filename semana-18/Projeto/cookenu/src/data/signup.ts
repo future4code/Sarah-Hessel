@@ -1,6 +1,7 @@
 import { connection } from ".."
 import { user } from "../types/user"
 
+const TABLE = "cookenu_users"
 
 export const signup = async(user: user): Promise<void> =>{
     try{
@@ -11,7 +12,7 @@ export const signup = async(user: user): Promise<void> =>{
             email: user.email,
             password: user.password
         })
-        .into("cookenu_signup")
+        .into(TABLE)
         console.log("Successfully created!")
     }
     catch(e){

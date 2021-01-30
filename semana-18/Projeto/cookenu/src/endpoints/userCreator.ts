@@ -37,3 +37,4 @@ export const userCreator = async(req: Request, res: Response): Promise<void> => 
         })
     }
 }
+
