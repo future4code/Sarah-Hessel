@@ -1,5 +1,4 @@
 import { connection } from ".."
-import { user } from "../types/user"
 
 const TABLE = "cookenu_users"
 
