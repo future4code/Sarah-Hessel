@@ -4,12 +4,12 @@ import { login } from '../data/login'
 import {generateToken} from '../services/authenticator'
 
 export const userLogin = async(req: Request, res: Response) => {
-    let errorCode: number = 400
+    let statusCode: number = 400
     try{
         const {email, password} = req.body
 
         if(!email || !password){
-            errorCode = 422
+            statusCode = 422
             throw new Error("Please make sure all fields are filled 'email' and 'password")
         }
         const user = await login(email)
@@ -36,7 +36,7 @@ export const userLogin = async(req: Request, res: Response) => {
         });
     }
     catch(e){
-        res.status(errorCode).send({
+        res.status(statusCode).send({
             message: e.message
         })
     }

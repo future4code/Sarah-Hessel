@@ -6,12 +6,12 @@ import { hash } from '../services/hashManager'
 
 
 export const userCreator = async(req: Request, res: Response): Promise<void> => {
-    let errorCode: number = 400
+    let statusCode: number = 400
     try{
         const {name, email, password} = req.body
 
         if(!name || !email || !password){
-            errorCode = 422
+            statusCode = 422
             throw new Error("Please make sure all fields are filled 'name', 'email', 'password'")
         }
         if(!email.includes("@")){
@@ -32,7 +32,7 @@ export const userCreator = async(req: Request, res: Response): Promise<void> => 
         })
     }
     catch(e){
-        res.status(errorCode).send({
+        res.status(statusCode).send({
             message: e.sqlMessage || e.message
         })
     }
