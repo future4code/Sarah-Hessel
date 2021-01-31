@@ -8,7 +8,8 @@ import { dataCollector } from './endpoints/getUserByToken'
 import { recipeCreator } from './endpoints/recipeCreator'
 import { getRecipesById } from './endpoints/getRecipesById'
 import { getUserById } from './endpoints/getUserById'
-
+import { userFollow } from './endpoints/userFollow'
+import { userUnfollow } from './endpoints/userUnfollow'
 
 dotenv.config()
 
@@ -49,6 +50,13 @@ app.post("/recipe", recipeCreator)
 
 // Visualizar receita 
 app.get("/recipe/:id", getRecipesById)
+
+// Seguir usuário
+app.post("/user/follow", userFollow)
+
+// Deixar de seguir usuário
+app.post("/user/unfollow", userUnfollow)
+
 
 app.listen(3003, () => {
    console.log('Servidor rodando na porta 3003')
