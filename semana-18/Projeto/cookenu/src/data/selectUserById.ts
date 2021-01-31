@@ -7,8 +7,7 @@ export const selectUserById = async (id: string): Promise<any> => {
         const result = await connection(TABLE)
         .select("*")
         .where({id})
-
-        console.log(result)
+    
         return result[0]
     }
     catch(e){

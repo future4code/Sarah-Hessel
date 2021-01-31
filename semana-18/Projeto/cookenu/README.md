@@ -1,100 +1,211 @@
-# To Do List
+# Cookenu
 
 ## ESTRUTURA DE DADOS  
   
-* ## Usuários
-  * id
+* ## Cadastro
   * name
-  * nickname 
   * email
+  * password (6 caracteres)
 
-* ## Tarefas 
+---
+
+**Método:** POST **Path:** `/signup`
+
+**Entradas:**
+
+Body
+
+```json
+{
+	"name": "Aisha",
+	"email": "aisha@winx.com",
+	"password": "123456"
+}
+
+```
+
+**Saídas**
+
+Body
+
+```json
+{
+	"access_token": "token de acesso"
+}
+
+---
+
+* ## Login
+
+  * email
+  * password (6 caracteres)
+
+
+**Método:** POST
+**Path:** `/login`
+
+**Entradas:**
+
+Body
+
+```json
+{
+	"email": "bloom@wix.com",
+	"password": "123456"
+}
+```
+
+**Saídas**
+
+Body
+
+```json
+{
+	"access_token": "token de acesso"
+}
+```
+
+---
+
+* ## Pegar informações do próprio perfil 
+
+  * token
+
+  **Método:** GET
+**Path:** `/user/profile`
+
+**Entradas:**
+
+Headers
+
+```
+Authorization: "token de autenticação"
+```
+
+**Saídas**
+
+Body
+
+```json
+{
+	"id": "id do usuário",
+	"name": "Tecna",
+	"email": "tecna@winx.com"
+}
+```
+---
+
+* ## Pegar informações de outro perfil 
+
+  * id (de outro usuário)
+  * token
+
+
+  **Método:** GET
+**Path:** `/user/:id`
+
+**Entradas:**
+
+Path Param
+
+```
+id: "id do usuário"
+```
+
+Headers
+
+```
+Authorization: "token de autenticação"
+```
+
+**Saídas**
+
+Body
+
+```json
+{
+	"id": "id do usuário",
+	"name": "Flora",
+	"email": "flora@winx.com"
+}
+```
+---
+
+* ## Criar receita
+
+  * token
+
+
+**Método:** POST
+**Path:** `/recipe`
+
+**Entradas:**
+
+Headers
+
+```
+Authorization: "token de autenticação"
+```
+
+Body
+
+```json
+{
+	"title": "título da receita",
+	"description": "descrição da receita"
+}
+```
+---
+
+* ## Pegar receita
+
   * id
-  * title
-  * description
-  * deadline
-  * status: `"to_do" || "doing" || "done"`
-  * author 
-  * assignees
-   
----
+  * token
 
-## CRIAÇÃO DE TABELAS - MySql
+  **Método:** GET
+**Path:** `/recipe/:id`
 
-```sql
-CREATE TABLE to_do_list_users (
-    id VARCHAR(64) PRIMARY KEY,
-    name VARCHAR(64) NOT NULL,
-    nickname VARCHAR(64) NOT NULL,
-    email VARCHAR(64) NOT NULL
-);
+**Entradas:**
+
+Path Param
+
 ```
-```sql
-CREATE TABLE to_do_list_tasks (
-    id VARCHAR(64) PRIMARY KEY,
-    title VARCHAR(64) NOT NULL,
-    description VARCHAR(1024) DEFAULT "No description provided",
-    deadline DATE,
-    status ENUM("TO_DO", "DOING", "DONE") DEFAULT "TO_DO",
-    author_id VARCHAR(64),
-    FOREIGN KEY (author_id) REFERENCES to_do_list_users(id)
-);
+id: "id da receita"
 ```
-```sql
-CREATE TABLE to_do_list_assignees (
-    task_id VARCHAR(64),
-    assignee_id VARCHAR(64),
-    PRIMARY KEY (task_id, assignee_id),
-    FOREIGN KEY (task_id) REFERENCES to_do_list_tasks(id),
-    FOREIGN KEY (assignee_id) REFERENCES to_do_list_users(id)
-);
+
+Headers
+
 ```
----
+Authorization: "token de autenticação"
+```
 
-## ENDPOINTS 
+**Saídas**
 
-* ## Criar usuário
-  * Método: PUT
-  * Path: `/user`
-  * Body:
-    * name (obrigatório)
-    * nickname (obrigatório)
-    * email (obrigatório)
+Body
 
-* ## Pegar usuário pelo id
-  * Método: GET
-  * Path: `/user/:id`
-  * Body de Resposta: (retornar um erro se não encontrar)
-    * id
-    * nickname
+```json
+{
+	"id": "id da receita",
+	"title": "Cake Fairy",
+	"description": "Pega o ovo, a farinha, um pouquinho de leite, pó de pirlim pim pim e bota pra assar!",
+	"cratedAt": "31/12/2020"
+}
+```
 
+## TABELAS MYSQL 
 
-* ## Editar usuário**
-  * Método: POST
-  * Path: `/user/edit/:id`
-  * Body:
-    * name (opcional; não pode ser vazio)
-    * nickname (opcional; não pode ser vazio)
-    * email (opcional; não pode ser vazio)
+CREATE TABLE cookenu_signup(
+	id VARCHAR(255) PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(6) NOT NULL
+);
 
-
-* ## Criar tarefa
-  * Método: PUT
-  * Path: `/task`
-  * Body:
-    * title (obrigatório)
-    * description (obrigatório)
-    * deadline (obrigatório; formato `YYYY-MM-DD`)
-    * authorId
-
-* ## Pegar tarefa pelo id
-  * Método: GET
-  * Path: `/task/:id`
-  * Body de Resposta: (retornar um erro se não encontrar)
-    * id
-    * title 
-    * description
-    * deadline (formato `YYYY-MM-DD`)
-    * status
-    * authorId
-    * authorNickname
+CREATE TABLE cookenu_recipes(
+	id VARCHAR(255) PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  date_of_creation DATE NOT NULL, 
+  creator_id VARCHAR(255) NOT NULL,
+	FOREIGN KEY (creator_id) REFERENCES cookenu_users(id)
+);
