@@ -6,6 +6,7 @@ import { userCreator } from './endpoints/userCreator'
 import { userLogin } from './endpoints/userLogin'
 import { dataCollector } from './endpoints/dataCollectorByToken'
 import { recipeCreator } from './endpoints/recipeCreator'
+import { getRecipesById } from './endpoints/getRecipesById'
 
 
 dotenv.config()
@@ -30,10 +31,20 @@ app.get("/", async function(req,res){
    res.send(await connection.raw('show tables'))
 })
 
+// Criar usuário 
 app.post("/signup", userCreator)
+
+// Fazer login
 app.post("/login", userLogin)
+
+// Visualizar perfil
 app.get("/user/profile", dataCollector)
+
+// Criar receita
 app.post("/recipe", recipeCreator)
+
+// Visualizar receita 
+app.get("/recipe/:id", getRecipesById)
 
 app.listen(3003, () => {
    console.log('Servidor rodando na porta 3003')
