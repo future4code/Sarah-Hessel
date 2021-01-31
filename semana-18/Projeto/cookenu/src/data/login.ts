@@ -11,6 +11,6 @@ export const login = async (email: string): Promise<any> => {
         return result[0];
     }
     catch(e){
-        console.log(e.sqlMessage || e.message)
+       throw new Error(e.sqlMessage || e.message)
     }
 }

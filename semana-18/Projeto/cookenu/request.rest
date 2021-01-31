@@ -10,3 +10,10 @@ POST http://localhost:3003/signup
     "email": "Aisha@winx.com",
     "password": "marrom"
 }
+
+POST http://localhost:3003/recipe 
+
+{
+    "title": "Fairy cake, ou Bolinho das fadas",
+    "description": "Um pouco de farinha, ovos, açúcar e uma pitada de pó de pirilim pim pim. Pronto, está feito o fairy cake!"
+}

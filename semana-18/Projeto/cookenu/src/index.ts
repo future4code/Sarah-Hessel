@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import { userCreator } from './endpoints/userCreator'
 import { userLogin } from './endpoints/userLogin'
 import { dataCollector } from './endpoints/dataCollectorByToken'
+import { recipeCreator } from './endpoints/recipeCreator'
 
 
 dotenv.config()
@@ -32,6 +33,7 @@ app.get("/", async function(req,res){
 app.post("/signup", userCreator)
 app.post("/login", userLogin)
 app.get("/user/profile", dataCollector)
+app.post("/recipe", recipeCreator)
 
 app.listen(3003, () => {
    console.log('Servidor rodando na porta 3003')
