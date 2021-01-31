@@ -31,7 +31,7 @@ export const recipeCreator = async(req: Request, res: Response): Promise<void> =
            description: description || "",
            date_of_creation: dayjs().format('YYYY-MM-DD'),
            creator_id: user.id
-        })
+       })
         res.status(201).send({
            message: "Recipe created!" 
         })

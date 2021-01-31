@@ -4,9 +4,10 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import { userCreator } from './endpoints/userCreator'
 import { userLogin } from './endpoints/userLogin'
-import { dataCollector } from './endpoints/dataCollectorByToken'
+import { dataCollector } from './endpoints/getUserByToken'
 import { recipeCreator } from './endpoints/recipeCreator'
 import { getRecipesById } from './endpoints/getRecipesById'
+import { getUserById } from './endpoints/getUserById'
 
 
 dotenv.config()
@@ -37,8 +38,11 @@ app.post("/signup", userCreator)
 // Fazer login
 app.post("/login", userLogin)
 
-// Visualizar perfil
+// Visualizar o próprio perfil
 app.get("/user/profile", dataCollector)
+
+// Visualizar o perfil dos outros
+app.get("/user/profile/:id", getUserById)
 
 // Criar receita
 app.post("/recipe", recipeCreator)
