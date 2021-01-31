@@ -4,6 +4,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import { userCreator } from './endpoints/userCreator'
 import { userLogin } from './endpoints/userLogin'
+import { dataCollector } from './endpoints/dataCollectorByToken'
 
 
 dotenv.config()
@@ -30,6 +31,7 @@ app.get("/", async function(req,res){
 
 app.post("/signup", userCreator)
 app.post("/login", userLogin)
+app.get("/user/profile", dataCollector)
 
 app.listen(3003, () => {
    console.log('Servidor rodando na porta 3003')
