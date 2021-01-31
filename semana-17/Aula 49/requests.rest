@@ -1,0 +1,52 @@
+
+ PATCH http://localhost:3003/student/3/add/2
+Content-Type: application/json 
+
+
+ POST http://localhost:3003/students
+Content-Type: application/json 
+
+{
+    "name": "Nico Uno",
+    "email": "numero1@gmail.com",
+    "birthdayBody": "15/02/1999",
+    "hobbie": "Usar oculos escuros descolados e chefiar o setor V"
+}
+{
+    "name": "Horácio P. jr",
+    "email": "numero2@gmail.com",
+    "birthdayBody": "22/05/1999",
+    "hobbie": "Contar piadas sem graça, voar em aviões e criar novas tecnologias"
+}
+{
+    "name": "Ukibi Nokome",
+    "email": "numero3@gmail.com",
+    "birthdayBody": "13/03/1997",
+    "hobbie": "Festas, cuidar das pessoas e controlar o robô-coelho-gigante. "
+}
+{
+    "name": "Maurício Mello",
+    "email": "numero4@gmail.com",
+    "birthdayBody": "07/08/1997",
+    "hobbie": "Artes marciais, arrumar briga e admirar a número 3"
+}
+{
+    "name": "Abigail Oliveira",
+    "email": "numero5@gmail.com",
+    "birthdayBody": "26/01/1998",
+    "hobbie": "Espionar sem sair de moda e comer doces"
+}
+
+
+
+ POST http://localhost:3003/mission
+Content-Type: application/json 
+
+{
+    "name": "Turma-do-bairro",
+    "start": "14/10/2020",
+    "end": "05/04/2021",
+    "modulo": "7",
+    "type": "Integral"
+}
+
