@@ -6,10 +6,11 @@ import { userCreator } from './endpoints/userCreator'
 import { userLogin } from './endpoints/userLogin'
 import { dataCollector } from './endpoints/getUserByToken'
 import { recipeCreator } from './endpoints/recipeCreator'
-import { getRecipesById } from './endpoints/getRecipesById'
+import { getRecipesById } from './endpoints/recipeGeneratorById'
 import { getUserById } from './endpoints/getUserById'
 import { userFollow } from './endpoints/userFollow'
 import { userUnfollow } from './endpoints/userUnfollow'
+import { getFeed } from './endpoints/RecipeFeedGenerator'
 
 dotenv.config()
 
@@ -56,6 +57,9 @@ app.post("/user/follow", userFollow)
 
 // Deixar de seguir usuário
 app.post("/user/unfollow", userUnfollow)
+
+// Mostra o feed de receitas
+app.get("/user/feed", getFeed)
 
 
 app.listen(3003, () => {

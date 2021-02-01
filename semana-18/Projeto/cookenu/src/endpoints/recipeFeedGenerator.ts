@@ -1,12 +1,11 @@
 import {Request, Response} from 'express'
-import { selectRecipe } from '../data/selectRecipe'
-import dayjs from 'dayjs'
+import { selectAllRecipes } from '../data/selectAllRecipes'
 import { getTokenData } from '../services/authenticator'
+import { recipe } from '../types/recipe'
 
-export const getRecipesById = async(req: Request, res: Response): Promise<void> => {
+export const getFeed = async(req: Request, res: Response): Promise<void> => {
     let statusCode: number = 400
     try{
-        const {id} = req.params
         const token: string = req.headers.authorization as string
         
         getTokenData(token)
@@ -15,13 +14,15 @@ export const getRecipesById = async(req: Request, res: Response): Promise<void> 
             statusCode = 406
             throw new Error('Invalid token')
         }
-        const recipe = await selectRecipe(id)
+        
+        const dataQuery = await selectAllRecipes()
+
+        const recipes = dataQuery.map((item: recipe) => {
+            return {id: item.id, title: item.title, description: item.description}
+        })
         
         res.status(201).send({
-            id: id,
-            title: recipe.title,
-            description: recipe.description,
-            date_of_creation: recipe.date_of_creation,
+            recipes: recipes
         })
     }
     catch(e){
