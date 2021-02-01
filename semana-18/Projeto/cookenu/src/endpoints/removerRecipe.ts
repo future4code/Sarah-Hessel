@@ -8,16 +8,9 @@ export const removerRecipe = async(req: Request, res: Response): Promise<void> =
         const {id} = req.body
         const token: string = req.headers.authorization as string
 
-        console.log({
-            id: id,
-            token: token
-        })
         const tokenData = getTokenData(token)
-        const oq = deleteRecipe(id, tokenData.id)
-        console.log({
-            tokenData: tokenData,
-            functionDelete: oq
-        })
+        deleteRecipe(id, tokenData.id)
+       
         res.status(200).send({
             message: "Recipe successfully deleted!"
         })
