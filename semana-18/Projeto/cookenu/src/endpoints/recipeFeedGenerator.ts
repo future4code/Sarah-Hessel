@@ -1,5 +1,6 @@
 import {Request, Response} from 'express'
-import { selectAllRecipes } from '../data/selectAllRecipes'
+import { selectAllRecipes } from '../data/selectAllRecipesByJoin'
+import { selectUserById } from '../data/selectUserById'
 import { getTokenData } from '../services/authenticator'
 import { recipe } from '../types/recipe'
 
@@ -15,10 +16,10 @@ export const getFeed = async(req: Request, res: Response): Promise<void> => {
             throw new Error('Invalid token')
         }
         
-        const dataQuery = await selectAllRecipes()
-
-        const recipes = dataQuery.map((item: recipe) => {
-            return {id: item.id, title: item.title, description: item.description}
+        const queryData =  await selectAllRecipes()
+        
+        const recipes = queryData.map((item: any) => {
+            return {id: item.id, title: item.title, description: item.description, dateOfCreation: item.date_of_creation, creatorId: item.creator_id, creatorName: item.name}
         })
         
         res.status(201).send({
