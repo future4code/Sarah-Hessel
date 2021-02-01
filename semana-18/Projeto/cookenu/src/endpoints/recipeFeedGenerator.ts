@@ -1,8 +1,6 @@
 import {Request, Response} from 'express'
 import { selectAllRecipes } from '../data/selectAllRecipesByJoin'
-import { selectUserById } from '../data/selectUserById'
 import { getTokenData } from '../services/authenticator'
-import { recipe } from '../types/recipe'
 
 export const getFeed = async(req: Request, res: Response): Promise<void> => {
     let statusCode: number = 400

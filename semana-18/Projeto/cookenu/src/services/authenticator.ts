@@ -5,6 +5,7 @@ dotenv.config()
 
 export type AuthenticationData = {
    id: string,
+   role: string
 }
 
 export function generateToken(

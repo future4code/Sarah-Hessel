@@ -21,7 +21,8 @@ export const getUserById = async(req: Request, res: Response): Promise<void> => 
         const dataUser: user = {
             id: id,
             name: user.name,
-            email: user.email
+            email: user.email,
+            role: user.role
         }
 
         res.status(200).send(dataUser)

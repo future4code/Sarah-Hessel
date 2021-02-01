@@ -45,11 +45,17 @@ app.post('/account/register', (req: Request, res: Response) => {
 // endpoint de buscar saldo pelo nome e cpf
 app.get('/account/:balance', (req: Request, res: Response) => {
       
-   try{
-   const searchCPF = accounts.filter(a => a.CPF === req.query.CPF )
-   const searchName = accounts.filter(a => a.name ===  req.query.NOME)
-   const search = searchCPF && searchName 
-      res.status(200).send(search)
+   try{  
+   const {CPF, Name} = req.query
+   const searchCPF = accounts.filter(a => a.CPF === CPF )
+   const searchName = accounts.filter(a => a.name ===  Name)
+   const search = searchCPF && searchName
+   for (let i = 0; i < accounts.length; i++){
+      if(CPF === accounts[i].CPF && Name === accounts[i].name){
+         res.status(200).send(search)
+      }
+   }
+   
      
    }catch(error){
       res.status(400).send(error.message)

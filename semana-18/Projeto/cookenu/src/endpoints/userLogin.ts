@@ -10,8 +10,9 @@ export const userLogin = async(req: Request, res: Response) => {
 
         if(!email || !password){
             statusCode = 422
-            throw new Error("Please make sure all fields are filled 'email' and 'password")
+            throw new Error("Please make sure all fields are filled 'email' and 'password'")
         }
+       
         const user = await login(email)
 
         if(!user){
@@ -29,6 +30,7 @@ export const userLogin = async(req: Request, res: Response) => {
 
         const token = generateToken({
             id: user.id,
+            role: user.role
          });
 
         res.status(200).send({ 

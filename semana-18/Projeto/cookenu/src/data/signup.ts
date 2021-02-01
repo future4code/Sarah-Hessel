@@ -10,7 +10,8 @@ export const signup = async(user: user): Promise<void> =>{
             id: user.id,
             name: user.name,
             email: user.email,
-            password: user.password
+            password: user.password,
+            role: user.role
         })
         .into(TABLE)
         console.log("Successfully created!")

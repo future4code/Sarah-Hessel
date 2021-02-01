@@ -5,17 +5,16 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import { goToSignUp } from '../../router/coodinator'
 import { useForm } from '../../hooks/useForm'
 import { user } from '../../services/user'
-import { Form, LoginPageContainer } from './styles'
+import { Form, LoginPageContainer, Page } from './styles'
 import styled from 'styled-components'
-import { createMuiTheme } from '@material-ui/core/styles';
-import {orange, red} from '@material-ui/core/colors';
-import Header from '../../components/header/index'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import {useProtectPage} from '../../hooks/useProtectPage'
 
 const theme = createMuiTheme({
     palette: {
-        primary: orange,
-        secondary: red,
+        primary:{
+            main: '#26a69a'
+        },
     },
 });
 
@@ -29,7 +28,7 @@ export const AvatarContainer = styled(Avatar)`
 function LoginPage() {
     useProtectPage()
     const history = useHistory();
-    const { form, onChange } = useForm({ email: '', password: '' })
+    const { form, onChange } = useForm({ email:"", password:"" })
 
     const handleInputChange = (event) => {
         const { value, name } = event.target
@@ -48,8 +47,8 @@ function LoginPage() {
         */
     }
     return (
-        <div>
-             <Header />
+        <Page>
+            <ThemeProvider theme={theme}>
         <LoginPageContainer>
             <AvatarContainer >
                 <LockOutlinedIcon />
@@ -60,6 +59,8 @@ function LoginPage() {
                     label="Email"
                     name="email"
                     type="email"
+                    variant="outlined"
+                    margin="normal"
                     value={form.email}
                     onChange={handleInputChange}
                 />
@@ -67,6 +68,8 @@ function LoginPage() {
                     label="Senha"
                     name="password"
                     type="password"
+                    variant="outlined"
+                    margin="normal"
                     value={form.password}
                     onChange={handleInputChange}
                 />
@@ -80,7 +83,8 @@ function LoginPage() {
             </Form>
             <Button color="secondary" variant="outlined" onClick={() => goToSignUp(history)} > Não é cadastrado? Crie sua conta </Button>
         </LoginPageContainer>
-        </div>
+        </ThemeProvider>
+        </Page>
     )
 }
 

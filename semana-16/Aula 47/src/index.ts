@@ -37,6 +37,18 @@ const server = app.listen(process.env.PORT || 3003, () => {
 
 /**************************************************************/
 
+/* Questão 1 */
+
+// a) Chave estrangeira é uma forma de comunicar uma tabela a outra.
+
+// b) 
+  
+
+
+
+
+
+/**************************************************************/
 app.get('/', testEndpoint)
 
 async function testEndpoint(req:Request, res:Response): Promise<void>{

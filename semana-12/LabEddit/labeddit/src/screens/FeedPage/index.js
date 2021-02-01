@@ -2,11 +2,19 @@ import { React, useEffect, useState } from 'react';
 import axios from 'axios'
 import Header from '../../components/header/index'
 import PostCard from '../../components/postCardItem'
-import { Typography, TextField, Button, Card } from '@material-ui/core'
-import { FeedContainer, ButtonContainer } from './styles'
+import { TextField, Button, Card } from '@material-ui/core'
+import { FeedContainer, ButtonContainer, Page } from './styles'
 import { useProtectPage } from '../../hooks/useProtectPage'
 import { BASE_URL } from '../../constants/url_api'
-import { useForm } from '../../hooks/useForm'
+import { createMuiTheme, ThemeProvider  } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+        main: '#26a69a',
+    }
+  },
+});
 
 function FeedPage() {
     const [isLoading, setLoading] = useState(false)
@@ -85,17 +93,19 @@ function FeedPage() {
     }
 
     return (
-        <div>
+        <Page>
+        <ThemeProvider  theme={theme}>
             <Header />
             <FeedContainer>
-                <Typography variant="h5"> Feed </Typography>
+                
                 <Card>
                     <TextField
                         type="text"
-                        placeholder="Titulo"
+                        placeholder="Título"
                         value={title}
                         onChange={handleOnChangeTitle}
                     />
+                    <br/>
                     <TextField
                         type="text"
                         placeholder="Escreva seu post aqui"
@@ -129,7 +139,8 @@ function FeedPage() {
                     )
                 })}
             </FeedContainer>
-        </div>
+        </ThemeProvider >
+        </Page>
     )
 }
 

@@ -1,16 +1,16 @@
-import express from 'express'
-import knex from 'knex'
-import cors from 'cors'
-import dotenv from 'dotenv'
-import { userCreator } from './endpoints/userCreator'
-import { userLogin } from './endpoints/userLogin'
-import { dataCollector } from './endpoints/getUserByToken'
-import { recipeCreator } from './endpoints/recipeCreator'
-import { getRecipesById } from './endpoints/recipeGeneratorById'
-import { getUserById } from './endpoints/getUserById'
-import { userFollow } from './endpoints/userFollow'
-import { userUnfollow } from './endpoints/userUnfollow'
-import { getFeed } from './endpoints/RecipeFeedGenerator'
+import express from 'express';
+import knex from 'knex';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import { userCreator } from './endpoints/userCreator';
+import { userLogin } from './endpoints/userLogin';
+import { dataCollector } from './endpoints/getUserByToken';
+import { recipeCreator } from './endpoints/recipeCreator';
+import { getRecipesById } from './endpoints/recipeGeneratorById';
+import { getUserById } from './endpoints/getUserById';
+import { userFollow } from './endpoints/userFollow';
+import { userUnfollow } from './endpoints/userUnfollow';
+import { getFeed } from './endpoints/recipeFeedGenerator';
 
 dotenv.config()
 
