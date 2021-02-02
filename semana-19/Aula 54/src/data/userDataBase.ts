@@ -1,4 +1,4 @@
-import { User } from "../business/entites/user";
+import { User, USER_ROLES } from "../business/entites/user";
 import { connection } from "./connection";
 
 const TABLE_NAME = "User_Arq"
@@ -14,7 +14,7 @@ export const insertUser = async(user: User): Promise<void> => {
             password: user.password,
             role: user.role
         })
-        .into(userDataBase.TABLE_NAME)
+        .into()
         console.count("Passei por aqui 12")
     }
     catch(e){
@@ -22,5 +22,4 @@ export const insertUser = async(user: User): Promise<void> => {
         throw new Error(e.sqlMessage || e.message)
     }
 };
-
 
