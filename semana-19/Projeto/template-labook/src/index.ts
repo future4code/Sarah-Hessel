@@ -2,8 +2,6 @@
 
 import express, { Express, Request, Response } from "express"
 import cors from "cors"
-import * as jwt from "jsonwebtoken"
-import * as bcrypt from "bcryptjs"
 
 /**************************** CONFIG ******************************/
 
@@ -11,47 +9,6 @@ const app: Express = express()
 app.use(express.json())
 app.use(cors())
 
-/**************************** TYPES ******************************/
-
-
-
-type User = {
-   id: string,
-   name: string,
-   email: string,
-   password: string
-}
-
-enum POST_TYPES {
-   NORMAL = "normal",
-   EVENT = "event"
-}
-
-type Post = {
-   id: string,
-   photo: string,
-   description: string,
-   type: POST_TYPES,
-   createdAt: Date,
-   authorId: string
-}
-
-/**************************** SERVICES ******************************/
-
-
-const hash = async (
-   plainText: string
-): Promise<string> => {
-   const rounds = Number(process.env.BCRYPT_COST);
-   const salt = await bcrypt.genSalt(rounds);
-   return bcrypt.hash(plainText, salt)
-}
-
-const compare = async (
-   plainText: string, cypherText: string
-): Promise<boolean> => {
-   return bcrypt.compare(plainText, cypherText)
-}
 
 /**************************** ENDPOINTS ******************************/
 
