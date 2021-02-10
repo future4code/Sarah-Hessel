@@ -9,7 +9,29 @@ export function performAttacka (attacker: Character, defender: Character){
         if(!validateAttacker || !validateDefender){
             throw new Error ("Invalid Character")
         }
-        if (defender.defense < attacker.strength){
+        if (attacker.strength > defender.defense){
+           defender.life = ((attacker.strength) - (defender.defense))
+        }
+    }
+    catch(e){
+        throw new Error(e.message)
+    }
+
+}
+
+export function performAttackInverted  (
+    attacker: Character, 
+    defender: Character,
+    validator: (input: any) => boolean
+    ){
+    try{
+        const validateAttacker =  validator(attacker)
+        const validateDefender =  validator(defender)
+
+        if(!validateAttacker || !validateDefender){
+            throw new Error ("Invalid Character")
+        }
+        if (attacker.strength > defender.defense){
            defender.life = ((attacker.strength) - (defender.defense))
         }
     }
