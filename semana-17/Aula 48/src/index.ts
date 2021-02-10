@@ -2,6 +2,7 @@ import knex from "knex";
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import { AddressInfo } from "net";
+import { getAllUsers } from "../endpoints/endpoints";
 
 /**************************************************************/
 
@@ -9,7 +10,7 @@ dotenv.config();
 
 /**************************************************************/
 
-const connection = knex({   
+export const connection = knex({   
   client: "mysql",
   connection: {
     host: process.env.DB_HOST,
@@ -37,7 +38,7 @@ const server = app.listen(process.env.PORT || 3003, () => {
 
 /**************************************************************/
 
-app.get('/', testEndpoint)
+app.get('/users/:type', getAllUsers)
 
 async function testEndpoint(req:Request, res:Response): Promise<void>{
   try {

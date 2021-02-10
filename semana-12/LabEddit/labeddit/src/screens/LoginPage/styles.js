@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-
+export const Page = styled.div`
+    background-color: rgb(245,245,245);
+    padding-bottom: 100%;
+`
 export const LoginPageContainer = styled.div`
     display: flex;
     flex-direction: column;

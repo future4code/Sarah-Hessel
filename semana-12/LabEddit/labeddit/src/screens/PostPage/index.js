@@ -1,11 +1,20 @@
 import { React, useEffect, useState } from 'react';
 import axios from 'axios'
 import { useHistory, useParams } from 'react-router-dom'
+import { Page, ListContainer } from './styles'
 import PostCard from '../../components/postCardItem'
 import { BASE_URL } from '../../constants/url_api'
-import { List, TextField, Button } from '@material-ui/core';
+import { TextField, Button } from '@material-ui/core';
 import CommentListItem from '../../components/commentListItem/index'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: '#26a69a'
+        },
+    },
+});
 function PostPage() {
     const [postDetail, setPostDetail] = useState(null);
     const [newComment, setNewComment] = useState("");
@@ -69,32 +78,42 @@ function PostPage() {
         const body = {
             direction: direction
         }
-        try{
-           await axios.put(`${BASE_URL}/posts/${params.postId}/comment/${commentId}/vote`, body, axiosConfig) 
-           fetchPostDetail();
-        }catch(error){
+        try {
+            await axios.put(`${BASE_URL}/posts/${params.postId}/comment/${commentId}/vote`, body, axiosConfig)
+            fetchPostDetail();
+        } catch (error) {
             alert("Não foi possivel votar no comentário, tente novamente")
             console.error(error)
         }
-        
+
     }
     return (
-        <div>
-            {postDetail !== null && <PostCard post={postDetail} hideComment />}
-            <TextField
-                placeholder={"Seu comentario"}
-                value={newComment}
-                onChange={handleUpdateComment}
-            />
-            <Button onClick={handleCreateComment}>Enviar comentário</Button>
-            <List dense>
-                {postDetail && postDetail.comments.map((comment) => {
-                    return (
-                        <CommentListItem comment={comment} handleCommentVotes={handleCommentVotes}/>
-                    )
-                })}
-            </List>
-        </div>
+        <Page>
+            <ThemeProvider theme={theme}>
+                {postDetail !== null && <PostCard post={postDetail} hideComment />}
+                <br/>
+                <TextField
+                    placeholder={"Seu comentario"}
+                    value={newComment}
+                    onChange={handleUpdateComment}
+                />
+                <br />
+                <Button
+                    onClick={handleCreateComment}
+                    color="primary"
+                    variant="contained"
+                >
+                    Enviar
+            </Button>
+                <ListContainer dense>
+                    {postDetail && postDetail.comments.map((comment) => {
+                        return (
+                            <CommentListItem comment={comment} handleCommentVotes={handleCommentVotes} />
+                        )
+                    })}
+                </ListContainer>
+            </ThemeProvider>
+        </Page>
     )
 }
 
